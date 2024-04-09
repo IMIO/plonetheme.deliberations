@@ -8,8 +8,7 @@ const JsonMinimizerPlugin = require("json-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 
-const PLONE_SITE_PATH = process.env.PLONE_SITE_PATH ?? "/conseil";
-const BUNDLE_NAME = "++theme++plonetheme-plonemeeting-portal";
+const THEME_NAME = "++theme++deliberations";
 
 module.exports = (env, argv) => {
   const mode = argv.mode ? argv.mode : "development";
@@ -17,16 +16,12 @@ module.exports = (env, argv) => {
     mode: mode,
     entry: path.resolve(__dirname, "./index.js"),
     output: {
-      // path: path.resolve(__dirname, "./dist"),
-      filename: "./dist/js/theme.js",
+      filename: "dist/js/theme.js",
+      path: path.resolve(__dirname),
     },
     plugins: [
-      mode === "production" && new CleanWebpackPlugin(),
-      // new CopyPlugin({
-      //   patterns: [{from: "assets", to: "assets"}],
-      // }),
       mode === "production" && new MiniCssExtractPlugin({
-        filename: "css/theme.css",
+        filename: "dist/css/theme.css",
       }),
     ].filter(Boolean),
     module: {
@@ -152,33 +147,28 @@ module.exports = (env, argv) => {
       port: 3000,
       hot: true,
       liveReload: false,
-      // watchFiles: {
-      //     paths: ["./../../**/*.pt"], // Watch for .pt file change
-      // },
-      // Proxy everything to the Plone Backend EXCEPT our bundle as
-      // Webpack Dev Server will serve it.
-      static: {
-        directory: ".",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      },
+      watchFiles: {
+          paths: ["./assets/**"], // Watch for assets changes.
       },
       // Proxy everything to the Plone Backend EXCEPT our bundle as
       // Webpack Dev Server will serve it.
       proxy: [
         {
-          context: ["/**"],
-          target: "http://localhost:8080",
-          bypass: function (req, res, proxyOptions) {
-            let path = req.url;
-            if (path.includes(BUNDLE_NAME)) {
-              if (path.includes("++unique++")) {
-                // Strip ++unique++ part
-                const reg = /\/\+\+unique\+\+[^/]+/;
-                path = path.replace(reg, "");
-              }
-              path = path.split(BUNDLE_NAME)[1]; // Keep only the path after our bundle name
-              return path;
-            }
-            return null;
-          },
+            context: ["/**", `!**/${THEME_NAME}/dist/**`],
+            target: "http://localhost:8080",
+        },
+        {
+            context: [`**/${THEME_NAME}/dist/**`],
+            target: "http://localhost:3000",
+            pathRewrite: function (path) {
+                path = path.split(THEME_NAME)[1]; // Keep only the path after our bundle name
+                return path;
+            },
         },
       ],
     },

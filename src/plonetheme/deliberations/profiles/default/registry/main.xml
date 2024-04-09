@@ -3,6 +3,10 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plonetheme.deliberations">
 
-<!-- -*- extra stuff goes here -*- -->
+  <record name="plone.toolbar_position" interface="Products.CMFPlone.interfaces.controlpanel.IFilterSchema" field="custom_attributes">
+    <value purge="true">
+      <element>top</element>
+    </value>
+  </record>
 
 </registry>
