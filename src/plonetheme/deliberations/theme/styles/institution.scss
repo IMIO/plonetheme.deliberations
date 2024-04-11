@@ -182,6 +182,7 @@
   box-shadow: $shadow;
 }
 
+
 .page-item {
   overflow: hidden;
   border-left: 1px solid $grey-300;
@@ -189,6 +190,11 @@
   margin: 0 0 0 -1px;
   background-color: $white;
 
+  &.disabled {
+    width: 36px;
+    text-align: center;
+    padding-top: 4px;
+  }
 
   &.active {
     .page-link {
@@ -263,11 +269,11 @@
 .items-container {
   margin-top: 1.5em;
   display: grid;
+  grid-auto-flow: row;
 
   &.grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 2em;
-
     .item-card h5 {
       font-size: 1rem;
     }
@@ -276,7 +282,6 @@
   &.list {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-gap: 2em;
-
     .item-card h5 {
       font-size: 1.2rem;
     }

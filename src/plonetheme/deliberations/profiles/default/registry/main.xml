@@ -9,4 +9,11 @@
     </value>
   </record>
 
+  <records prefix="plone.bundles/plonetheme.deliberations-devserver" interface="Products.CMFPlone.interfaces.IBundleRegistry">
+    <value key="enabled">False</value>
+    <value key="compile">False</value>
+    <value key="last_compilation">2020-09-04 12:30:00</value>
+    <value key="jscompilation">http://localhost:3000/dist/js/theme.js</value>
+  </records>
+
 </registry>
