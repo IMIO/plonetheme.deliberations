@@ -8,9 +8,11 @@ $enable-roboto-webfont: false !default;
 
 
 // 0. Include any custom functions, variables, and mixins here
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 @import "bootstrap-icons/font/bootstrap-icons.css";
-$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-sans-serif: 'Inter', sans-serif;
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/scss/functions";
@@ -104,6 +106,11 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 // 9. Add additional custom code here
 
+@import "homepage";
 @import "institution";
 @import "item";
+@import "cookies";
+@import "datatable";
+@import "tinymce";
+@import "utilities";
 //@import "header";

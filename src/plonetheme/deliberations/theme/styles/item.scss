@@ -1,7 +1,7 @@
 .portaltype-item {
 
   h1 {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-bottom: 1em;
     font-weight: 600;
   }
@@ -12,6 +12,12 @@
     border-radius: 5px;
     padding: 3rem 3rem;
     box-shadow: $shadow-md;
+
+    h2 {
+      font-size: 1em;
+      margin-bottom: 1em;
+      font-weight: 600;
+    }
   }
 
 
@@ -20,9 +26,15 @@
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.9rem;
+
+    background-color: $gray-100;
+    border-radius: $rounded-2xl;
+    box-shadow: $shadow;
+
 
     a {
       text-decoration: none;

@@ -2,18 +2,38 @@
   border-top: 16px solid var(--nav-color);
 }
 
-.section-seances header h1 {
-  display: none;
+.section-seances {
+  #section-byline {
+    display: none;
+  }
+
+  header h1 {
+    display: none;
+  }
+
 }
 
+.form-select:focus {
+  border-color: #80bdd8;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--nav-color), transparent 50%);
+}
+
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #80bdd8;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--nav-color), transparent 50%);
+}
 
 .pm-preview-meeting {
   background-color: transparentize($white, 0.70);
   border-radius: 10px;
-  border: 5px solid transparentize($white, 0.65);
-  backdrop-filter: blur(2px);
+  border: 1px solid $grey-300;
+  //backdrop-filter: blur(2px);
   padding: 1rem;
-  box-shadow: $shadow;
+  box-shadow: $shadow-md;
 }
 
 #content-header {
@@ -21,7 +41,7 @@
   justify-content: center;
 
   #portal-logo {
-    max-width: 200px;
+    max-width: 250px;
   }
 }
 
@@ -89,7 +109,7 @@
     }
 
     select, input[type="text"] {
-      background-color: $grey-100;
+      background-color: #F1F1F1;
       border-radius: 20px;
       border: 0;
       padding: 0.5em 1.5em;
@@ -118,6 +138,16 @@
   justify-content: right;
 }
 
+#faceted-results .faceted_loading {
+  background: url('../assets/ajax-spinner.svg') no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 150px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .faceted-sections-buttons .faceted-sections-buttons-more,
 .faceted-sections-buttons .faceted-sections-buttons-less {
   color: $grey-900 !important;
@@ -130,7 +160,7 @@
     padding: 0 12px;
     margin-right: -12px;
     border-radius: 25px;
-    width: 255px;
+    width: 245px;
     background-color: #F1F1F1;
   }
 
@@ -161,9 +191,9 @@
   //background-color: $grey-100;
   box-shadow: inset 0 7px 5px -5px rgba(0, 0, 0, 0.1);
   background-color: #f4f4f4;
-  background-image: linear-gradient(#ececec 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(90deg, #ececec 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(#ececec 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(90deg, #ececec 1.7000000000000002px, #f4f4f4 1.7000000000000002px);
-  background-size: 85px 85px, 85px 85px, 17px 17px, 17px 17px;
-  background-position: -3.4000000000000004px -3.4000000000000004px, -3.4000000000000004px -3.4000000000000004px, -1.7000000000000002px -1.7000000000000002px, -1.7000000000000002px -1.7000000000000002px;
+  //background-image: linear-gradient(#ececec 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(90deg, #ececec 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(#ececec 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(90deg, #ececec 1.7000000000000002px, #f4f4f4 1.7000000000000002px);
+  //background-size: 85px 85px, 85px 85px, 17px 17px, 17px 17px;
+  //background-position: -3.4000000000000004px -3.4000000000000004px, -3.4000000000000004px -3.4000000000000004px, -1.7000000000000002px -1.7000000000000002px, -1.7000000000000002px -1.7000000000000002px;
 
   //background-image:  linear-gradient($grey-100 2px, transparent 2px), linear-gradient(90deg, $grey-100 2px, transparent 2px), linear-gradient($grey-100 1px, transparent 1px), linear-gradient(90deg, $grey-100 1px, $grey-50 1px);
   //background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
@@ -245,20 +275,19 @@
   h3 {
     font-size: 1.3em;
     font-weight: 600;
-    color: $grey-800;
+    color: $grey-900;
   }
 
   h2 {
     margin-left: 2px;
-    font-size: 1.4em;
-    color: $black;
+    font-size: 1.6em;
+    color: $grey-900;
     font-weight: 700;
   }
 }
 
 .meeting-custom-info {
-  background-color: $white;
-  border-radius: $rounded;
+  @extend .card;
   padding: 1em 2em;
   box-shadow: $shadow-md;
   margin-bottom: 2.5em;
@@ -274,6 +303,7 @@
   &.grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 2em;
+
     .item-card h5 {
       font-size: 1rem;
     }
@@ -282,6 +312,7 @@
   &.list {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-gap: 2em;
+
     .item-card h5 {
       font-size: 1.2rem;
     }
@@ -289,6 +320,12 @@
 
   margin-bottom: 2.5em;
 
+
+}
+
+.meeting-state {
+  display: flex;
+  justify-content: end;
 
 }
 
@@ -321,6 +358,7 @@
 
     p {
       margin: 0;
+      text-align: justify;
     }
   }
 
@@ -331,22 +369,24 @@
 
   .item-number-bg {
     position: absolute;
-    color: $grey-50;
-    bottom: -36px;
-    right: 0.2em;
-    font-size: 8em;
-    font-weight: 900;
+    //font-family: "Montserrat", sans-serif;
+    color: $grey-900;
+    bottom: -20px;
+    right: 0.25em;
+    font-size: 6em;
+    font-weight: 100;
     z-index: 1;
+    letter-spacing: -0.1em;
   }
 
   .item-number-bg::before {
     content: "";
     display: block;
     position: absolute;
-    height: 75px;
+    height: 50px;
     width: 5px;
-    right: -12px;
-    top: 60px;
+    right: -15px;
+    top: 48px;
     background-color: color-mix(in srgb, var(--nav-color), transparent 80%);
     z-index: 0;
   }
@@ -373,12 +413,12 @@
     justify-content: space-between;
     flex-direction: column;
     font-size: 0.9em;
-    color: $grey-500;
+    color: $grey-800;
 
     max-width: 350px;
 
     .item-metadata-row {
-      border-bottom: 1px dashed $grey-300;
+      border-bottom: 1px dashed $grey-600;
     }
 
     .item-metadata-row:last-child {
@@ -410,3 +450,33 @@
 }
 
 
+#items-layout-select {
+  display: flex;
+  justify-content: end;
+
+  .btn-group {
+    box-shadow: $shadow;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  button {
+    background-color: $white;
+    padding: 0.5em 1.5em;
+    margin-left: 0em;
+    border: 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: $grey-900;
+    transition: background-color 0.20s ease-in-out;
+    border-bottom: 4px solid transparent;
+    &:hover {
+      background-color: $grey-200;
+    }
+  }
+
+  .btn.active {
+    border-bottom: 4px solid var(--nav-color) !important;
+  }
+
+}
