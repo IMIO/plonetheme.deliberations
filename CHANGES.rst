@@ -5,7 +5,8 @@ Changelog
 0.1a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change setup.py.
+  [aduchene]
 
 
 0.1a1 (2024-04-16)
