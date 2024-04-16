@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1a2 (unreleased)
+0.1a2 (2024-04-16)
 ------------------
 
 - Change setup.py.
