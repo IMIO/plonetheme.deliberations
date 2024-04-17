@@ -8,7 +8,6 @@ $enable-roboto-webfont: false !default;
 
 
 // 0. Include any custom functions, variables, and mixins here
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
@@ -106,6 +105,7 @@ $font-family-sans-serif: 'Inter', sans-serif;
 
 // 9. Add additional custom code here
 
+@import "base";
 @import "homepage";
 @import "institution";
 @import "item";

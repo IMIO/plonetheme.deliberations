@@ -1,0 +1,41 @@
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .outer-wrapper {
+    flex: 1;
+  }
+  background-color: $grey-100;
+}
+
+#content-header {
+  @extend .full-width;
+  background-color: $white;
+}
+
+#content header {
+  @extend .full-width;
+  background-color: $white;
+  box-shadow: $shadow-md;
+  margin-top: 0px;
+  z-index: -1; // This will hide the top shadow
+
+  h1 {
+    @extend .container;
+    padding: 0.75em 0;
+  }
+}
+
+
+#main-container {
+  margin-bottom: 0;
+}
+
+#content-core {
+  margin-bottom: 0;
+}

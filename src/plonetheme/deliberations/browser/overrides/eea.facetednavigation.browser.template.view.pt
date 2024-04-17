@@ -15,22 +15,26 @@
      tal:define="mode view/mode | string:view" tal:attributes="
     data-mode mode;
     data-baseurl string:${context/absolute_url}/">
-
-    <!-- Basic/Extended search -->
-    <div class="faceted-sections-buttons">
-      <a href="#" class="faceted-sections-buttons-more" i18n:translate="">
-        <div class="faceted-filter-button">
-          <i class="bi bi-filter-circle"></i>
-          <span class="label">Voir tous les filtres</span>
+    <div class="faceted-buttons-outer-wrapper">
+      <div class="container">
+        <!-- Basic/Extended search -->
+        <div class="faceted-sections-buttons">
+          <a href="#" class="faceted-sections-buttons-more" i18n:translate="">
+            <div class="faceted-filter-button">
+              <i class="bi bi-filter-circle"></i>
+              <span class="label">Voir tous les filtres</span>
+            </div>
+          </a>
+          <a href="#" class="faceted-sections-buttons-less" i18n:translate="">
+            <div class="faceted-filter-button">
+              <i class="bi bi-filter-circle-fill"></i>
+              <span class="label">Masquer tous les filtres</span>
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="#" class="faceted-sections-buttons-less" i18n:translate="">
-        <div class="faceted-filter-button">
-          <i class="bi bi-filter-circle-fill"></i>
-          <span class="label">Masquer tous les filtres</span>
-        </div>
-      </a>
+      </div>
     </div>
+
 
     <metal:widgets use-macro="here/@@faceted_widgets_macros/macros/widgets"/>
 
