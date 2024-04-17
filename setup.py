@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='plonetheme.deliberations',
-    version='0.1a3.dev0',
+    version='0.1a3',
     description="An add-on for Plone",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/

@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-0.1a3 (unreleased)
+0.1a3 (2024-04-17)
 ------------------
 
-- Nothing changed yet.
+-Work in progress.
+ [aduchene]
 
 
 0.1a2 (2024-04-16)
@@ -19,4 +20,4 @@ Changelog
 ------------------
 
 - Initial release.
-  [duchenean]
+  [aduchene]
