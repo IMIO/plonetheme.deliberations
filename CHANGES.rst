@@ -5,7 +5,8 @@ Changelog
 0.1a4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix bad release.
+  [aduchene]
 
 
 0.1a3 (2024-04-17)
