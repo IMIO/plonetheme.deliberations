@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1a4 (unreleased)
+0.1a4 (2024-04-17)
 ------------------
 
 - Fix bad release.
