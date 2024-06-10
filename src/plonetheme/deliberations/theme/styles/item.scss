@@ -7,11 +7,127 @@
   }
 
 
+  .project-warning {
+    margin-bottom: 0;
+    p {
+      margin-bottom: 0.5em;
+      font-size: .90em;
+      //text-shadow: rgba(255, 204, 0, 0.62) 1px 0 10px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  .annexes-section {
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      font-weight: 600;
+    }
+  }
+
+  .annexes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 1rem;
+
+    .annex {
+      @extend .card;
+      background-color: #FFF;
+      min-height: 100%;
+      display: flex;
+      flex-direction: row;
+      box-shadow: $shadow;
+      overflow: hidden;
+
+      .title {
+        padding: 0.25em 0.5em;
+        flex: 1;
+        border-left: 1px solid $grey-500;
+        border-right: 1px solid $grey-500;
+      }
+
+      h3 {
+        font-size: 0.85em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+      }
+
+      .type {
+        margin: 10px;
+        border-radius: $rounded;
+        width: 50px;
+        box-shadow: $shadow-inner;
+
+        background: linear-gradient(to right top, rgb(185, 28, 28), rgb(239, 68, 68));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bolder;
+        color: white;
+
+        i {
+          font-size: 35px;
+        }
+      }
+
+
+      .bg-file-pdf {
+        background: linear-gradient(to right top, rgb(185, 28, 28), rgb(239, 68, 68));
+      }
+
+      .bg-file-sheet {
+        background: linear-gradient(to right top, rgb(21, 128, 61), rgb(34, 197, 94));
+      }
+
+      .bg-file-word {
+        background: linear-gradient(to right top, rgb(37, 99, 235), rgb(96, 165, 250));
+      }
+
+      .bg-file-other {
+        background: linear-gradient(to right top, rgb(107, 114, 128), rgb(209, 213, 219));
+      }
+
+
+      .annex-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $grey-200;
+        border-top: 1px solid $grey-300;
+
+        i {
+          text-decoration: none;
+          color: $grey-900;
+          transition: background-color 0.20s ease-in-out;
+          border-bottom: 1px solid $grey-500;
+          padding: 0.5em 1em;
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+
+          &:hover, &.active, &:focus {
+            color: $grey-900;
+            background-color: $grey-50;
+          }
+        }
+
+        i:last-child {
+          border-bottom: 0;
+        }
+      }
+
+    }
+  }
+
+
   .item-content {
-    border: 1px solid $grey-100;
-    border-radius: 5px;
     padding: 3rem 3rem;
-    box-shadow: $shadow-md;
 
     h2 {
       font-size: 1em;
@@ -21,33 +137,101 @@
   }
 
 
-  #querynextprev-navigation {
-    margin-top: 0.1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+  .item-metadatas {
+    .item-metadata-row {
+      display: flex;
+      padding: 0.5em 0;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px dashed $grey-700;
 
-    background-color: $gray-100;
-    border-radius: $rounded-2xl;
-    box-shadow: $shadow;
-
-
-    a {
-      text-decoration: none;
-      color: $grey-700;
-      padding: 0.5rem 1rem;
-      transition: background-color 0.20s ease-in-out;
-      border-radius: $rounded;
-      &:hover, &.active, &:focus {
-        color: $grey-900;
-        background-color: $grey-50;
+      .header {
+        font-weight: bolder
       }
+
+      font-size: 0.9em;
     }
 
-
+    .item-metadata-row:last-child {
+      border-bottom: 0;
+    }
   }
+}
+
+
+.meeting-card {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  transition: outline-color 0.20s ease-in-out;
+  border-radius: $rounded-md;
+  outline-style: solid;
+  outline-offset: 2px;
+  outline-color: transparent;
+  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  justify-self: stretch;
+
+
+  .meeting-type {
+    font-style: italic;
+    color: $grey-800;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .meeting-card-icon {
+    i {
+      position: absolute;
+      right: 25px;
+      bottom: -50px;
+      font-size: 100px;
+      color: $grey-200;
+      transition: all 0.20s ease-in-out;
+    }
+
+    .meeting-card-icon-day {
+      position: absolute;
+      font-size: 40px;
+      font-weight: bolder;
+      font-style: normal;
+      left: 0;
+      right: 0;
+      top:50px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80px;
+      text-align: center;
+    }
+  }
+
+  .meeting-title-link {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: $grey-900;
+    text-decoration: none;
+  }
+
+  .meeting-item-number {
+    font-size: 0.90rem;
+    min-width: 80px;
+    font-weight: bold;
+    width: 70%;
+    border-top: 1px dashed $grey-600;
+    margin-top: 0.25em;
+    padding-top: 0.25em;
+  }
+
+  &:hover {
+    cursor: pointer;
+    outline-color: color-mix(in srgb, var(--nav-color), transparent 50%);
+
+    .meeting-card-icon {
+      i {
+        color: color-mix(in srgb, var(--nav-color), transparent 75%);
+      }
+    }
+  }
+
 }

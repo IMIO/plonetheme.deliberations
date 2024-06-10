@@ -36,6 +36,40 @@
   border-top-color: white;
   border-top-style: solid;
 }
+
 .__react_component_tooltip {
   padding: 0.5em 1em !important;
+}
+
+
+.watermarked {
+  position: relative;
+  overflow: hidden;
+}
+
+.watermarked .watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+.watermarked .watermark::before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  font-style: italic;
+  pointer-events: none;
+  text-transform: uppercase;
+  z-index: -1;
+  display: block;
+  text-shadow: rgba(0, 0, 0, 1) 0 0 7px;
+  content: attr(data-text);
+  font-family: monospace;
+  opacity: 0.06;
+  line-height: 4.5em;
+  letter-spacing: 1px;
+  color: black;
 }

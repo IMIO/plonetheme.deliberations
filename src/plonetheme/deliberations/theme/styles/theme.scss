@@ -78,7 +78,7 @@ $font-family-sans-serif: 'Inter', sans-serif;
 @import "bootstrap/scss/utilities/api";
 
 // 9. Barceloneta base
-@import "@plone/plonetheme-barceloneta-base/scss/alerts";
+//@import "@plone/plonetheme-barceloneta-base/scss/alerts";
 @import "@plone/plonetheme-barceloneta-base/scss/forms";
 @import "@plone/plonetheme-barceloneta-base/scss/controlpanels";
 @import "@plone/plonetheme-barceloneta-base/scss/login";
@@ -106,6 +106,10 @@ $font-family-sans-serif: 'Inter', sans-serif;
 // 9. Add additional custom code here
 
 @import "base";
+@import "badge";
+@import "button";
+@import "card";
+@import "alert";
 @import "homepage";
 @import "institution";
 @import "item";
@@ -113,4 +117,5 @@ $font-family-sans-serif: 'Inter', sans-serif;
 @import "datatable";
 @import "tinymce";
 @import "utilities";
+@import "navigation";
 //@import "header";

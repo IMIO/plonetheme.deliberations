@@ -1,0 +1,38 @@
+.state-badge {
+  border-radius: $rounded;
+  padding: 2px 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+
+  &.success,
+  &.state-decision,
+  &.added {
+    background-color: $green-500;
+
+  }
+
+  &.danger,
+  &.state-private,
+  &.removed {
+    background-color: $red-500;
+  }
+
+  &.warning,
+  &.state-in_project,
+  &.modified {
+    background-color: $orange-400;
+  }
+
+  &.state-badge-sm {
+    padding: 2px 6px;
+    font-size: 0.7em;
+    white-space: nowrap;
+  }
+}
+
+

@@ -51,7 +51,7 @@
   font-size: 1.2em;
 
   .container {
-    border-bottom: 1px solid $gray-400;
+    border-bottom: 0;
     border-top: 1px solid $gray-400;
   }
 
@@ -62,6 +62,7 @@
     background-color: $white !important;
 
     a {
+      border-bottom: 5px solid transparent;
       &:hover {
         background-color: $grey-50;
         border: 0;
@@ -157,6 +158,9 @@
   left: 50%;
   z-index: -1;
   box-shadow: $shadow-md;
+}
+.template-facetednavigation_view #mainnavigation {
+  margin-bottom: 0;
 }
 
 .faceted-sections-buttons {
