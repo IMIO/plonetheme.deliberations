@@ -1,13 +1,39 @@
-.items-datatables-container {
-  padding: 0 5em 1em 5em;
-  margin-top: -2em;
+.template-pre_sync_report_form {
+  #section-byline{
+    display: none;
+  }
+}
+
+
+.template-pre_import_report_form {
+  #section-byline{
+    display: none;
+  }
+}
+
+
+#items-datatables-container {
+  padding: 3em 2em;
+
+
+  table.dataTable thead > tr > th.sorting::before {
+    bottom: 25%;
+  }
+
+  table.dataTable thead > tr > th.sorting::after {
+    top: 75%;
+  }
+
+  .dataTables_scrollHead {
+    margin-left: 1px;
+  }
 
   @include media-breakpoint-down(md) {
     padding: 0 0 1em 0;
   }
 
   th {
-    background-color: $grey-100;
+    background-color: $grey-200;
     color: $grey-900;
     white-space: nowrap;
   }
@@ -17,7 +43,7 @@
     padding-bottom: 0.25em;
     margin-right: -20px;
     margin-bottom: 0.25em;
-    border-bottom: 1px dashed $grey-300;
+    border-bottom: 1px dashed $grey-500;
     text-transform: uppercase;
     font-size: 0.8em;
     color: $grey-700;
@@ -53,65 +79,65 @@
 
 // Specific to pre sync form
 .template-pre_sync_report_form {
-
-  th.status-header {
-    border-left: 8px solid $grey-200 !important;
-  }
-
-  #items-datatables .status-cell {
-    font-weight: bold;
-    padding: 0;
-    vertical-align: middle;
-    text-align: center;
-
-    span {
-      border-radius: $rounded;
-      display: inline-block;
-      padding: 1px 6px;
-      box-shadow: $shadow-md;
-      font-size: 0.9em;
-      text-transform: uppercase;
-      margin: 0 6px;
+  #items-datatables-container {
+    th.status-header {
+      padding-left: 8px !important;
     }
-  }
 
-  #items-datatables .unchanged > .status-cell {
-    border-left: 8px solid $grey-500;
+    #items-datatables .status-cell {
+      font-weight: bold;
+      padding: 0;
+      vertical-align: middle;
+      text-align: center;
 
-    span {
-      background-color: $grey-500;
-      color: $white;
+      span {
+        border-radius: $rounded;
+        display: inline-block;
+        padding: 1px 6px;
+        box-shadow: $shadow-md;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        margin: 0 6px;
+      }
     }
-  }
 
-  #items-datatables .added > .status-cell {
-    border-left: 8px solid $green;
+    #items-datatables .unchanged > .status-cell {
+      border-left: 8px solid $grey-500;
 
-    span {
-      background-color: $green;
-      color: $white;
+      span {
+        background-color: $grey-500;
+        color: $white;
+      }
     }
-  }
 
-  #items-datatables .removed > .status-cell {
-    border-left: 8px solid $red;
+    #items-datatables .added > .status-cell {
+      border-left: 8px solid $green;
 
-    span {
-      background-color: $red;
-      color: $white;
+      span {
+        background-color: $green;
+        color: $white;
+      }
     }
-  }
 
-  #items-datatables .modified > .status-cell {
-    border-left: 8px solid $orange;
+    #items-datatables .removed > .status-cell {
+      border-left: 8px solid $red;
 
-    span {
-      background-color: $orange;
-      color: $white;
+      span {
+        background-color: $red;
+        color: $white;
+      }
+    }
+
+    #items-datatables .modified > .status-cell {
+      border-left: 8px solid $orange;
+
+      span {
+        background-color: $orange;
+        color: $white;
+      }
     }
   }
 }
-
 
 // Annexes status
 .annexes-status {

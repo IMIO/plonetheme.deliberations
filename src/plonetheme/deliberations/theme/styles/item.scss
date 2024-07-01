@@ -1,6 +1,6 @@
 .portaltype-item {
 
-  h1 {
+   #content h1, h1 {
     font-size: 1.4em;
     margin-bottom: 1em;
     font-weight: 600;
@@ -9,6 +9,7 @@
 
   .project-warning {
     margin-bottom: 0;
+
     p {
       margin-bottom: 0.5em;
       font-size: .90em;
@@ -36,7 +37,7 @@
 
     .annex {
       @extend .card;
-      background-color: #FFF;
+      background-color: $white;
       min-height: 100%;
       display: flex;
       flex-direction: row;
@@ -176,7 +177,7 @@
 
   .meeting-type {
     font-style: italic;
-    color: $grey-800;
+    color: $grey-700;
     text-transform: uppercase;
     font-weight: 400;
   }
@@ -198,7 +199,7 @@
       font-style: normal;
       left: 0;
       right: 0;
-      top:50px;
+      top: 50px;
       margin-left: auto;
       margin-right: auto;
       width: 80px;
@@ -234,4 +235,73 @@
     }
   }
 
+}
+
+
+#meeting-agenda {
+  .offcanvas-body {
+    padding: 0;
+  }
+
+  .items-list {
+    list-style: none;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+      color: $grey-900;
+    }
+  }
+
+  .item-line {
+    display: flex;
+    padding: 0.5em 0;
+    border-bottom: 1px solid $grey-300;
+    transition: background-color 0.20s ease-in-out;
+
+    .item-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 65px;
+      font-weight: lighter;
+    }
+
+    .item-title {
+      flex: 1;
+      text-transform: initial;
+      padding-right: 1em;
+      text-align: justify;
+    }
+
+  }
+
+  .item-line:hover {
+    background-color: $grey-100;
+  }
+
+}
+
+
+.dark {
+  .meeting-card-icon {
+    i {
+      color: $grey-700;
+    }
+  }
+  .meeting-type {
+    color: $grey-200;
+  }
+
+  .meeting-title-link {
+    color: $grey-100;
+  }
+}
+
+.item-content {
+  h3 {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
 }

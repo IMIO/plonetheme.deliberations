@@ -5,7 +5,8 @@ Changelog
 0.1a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Work in progress.
+  [aduchene]
 
 
 0.1a4 (2024-04-17)

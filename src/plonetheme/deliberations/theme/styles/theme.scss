@@ -97,7 +97,7 @@ $font-family-sans-serif: 'Inter', sans-serif;
 @import "@plone/plonetheme-barceloneta-base/scss/content";
 @import "@plone/plonetheme-barceloneta-base/scss/comments";
 @import "@plone/plonetheme-barceloneta-base/scss/portlets";
-@import "@plone/plonetheme-barceloneta-base/scss/footer";
+//@import "@plone/plonetheme-barceloneta-base/scss/footer";
 
 @import "@plone/plonetheme-barceloneta-base/scss/print";
 
@@ -118,4 +118,5 @@ $font-family-sans-serif: 'Inter', sans-serif;
 @import "tinymce";
 @import "utilities";
 @import "navigation";
+@import "footer";
 //@import "header";

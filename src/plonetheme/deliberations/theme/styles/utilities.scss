@@ -65,6 +65,7 @@
   text-transform: uppercase;
   z-index: -1;
   display: block;
+  position: absolute;
   text-shadow: rgba(0, 0, 0, 1) 0 0 7px;
   content: attr(data-text);
   font-family: monospace;
@@ -72,4 +73,11 @@
   line-height: 4.5em;
   letter-spacing: 1px;
   color: black;
+}
+
+.watermarked.watermarked-small .watermark::before {
+  font-size: 0.9em;
+  line-height: 4em !important;
+  opacity: 0.05;
+  text-shadow: rgba(0, 0, 0, 1) 0 0 7px;
 }

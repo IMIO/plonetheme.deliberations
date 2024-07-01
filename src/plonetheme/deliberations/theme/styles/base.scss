@@ -24,7 +24,7 @@ body {
   margin-bottom: 0;
 }
 
-#section-byline{
+#section-byline {
   margin-bottom: 1em;
   color: $grey-600;
   font-style: italic;
@@ -35,7 +35,7 @@ body {
   background-color: $white;
 }
 
-#content header {
+#content {
   //@extend .full-width;
   //background-color: $white;
   //box-shadow: $shadow-md;
@@ -44,11 +44,19 @@ body {
 
   h1 {
     @extend .container;
-    padding: 0.75em 0;
+    padding: 0.5em 0;
     border-bottom: 1px solid $grey-300;
+    font-size: 2em;
+    font-weight: 500;
   }
 }
 
+.documentDescription, .documentByline, #content header .lead {
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: $grey-700;
+  font-size: 1.1em;
+}
 
 #main-container {
   margin-bottom: 0;
@@ -59,72 +67,39 @@ body {
 }
 
 
-.dropdown-menu:after {
-  left: 0;
-  margin-left: 14px;
-  top: -14px;
-  border: 8px solid #0000;
-  border-bottom: 7px solid $body-bg;
-}
-
-.dropdown-menu {
-  margin-top: 5px !important;
-  border: 1px solid $border-color;
-  box-shadow: $shadow-md;
-  width: 500px
-}
-
-.dropdown-menu:before,
-.dropdown-menu:after {
-  content: "";
-  left: auto;
-  display: inline-block;
-  position: absolute;
-}
-
-
-.dropdown.navigation-dropdown {
-
-  .dropdown-menu {
-    font-weight: normal;
-    max-height: 500px;
-    overflow-y: auto;
-  }
-
-
-  a.item-line {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 0.5em 0.5em 0.5em 0 !important;
-    margin: 0;
-  }
-
-
-  .items-list li {
-    border-bottom: 1px solid $grey-200;
-  }
-
-  .items-list li:last-child {
-    border-bottom: 0;
-  }
-
-  .item-number {
-    font-size: 0.90rem;
-    width: 80px;
-    min-width: 80px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .item-title {
-    text-transform: none;
-    text-align: justify;
-    word-spacing: -2px;
-  }
-}
-
-.template-document_view #content-core {
+.template-document_view #content-core,
+.template-contact-info #content-core,
+.template-sitemap #content-core {
   @extend .card;
-  padding: 3rem;
+  padding: 1.5em 2.5em;
+}
+
+
+.placeholder {
+  border-radius: $rounded-sm;
+  opacity: 0.1;
+}
+
+.formControls {
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-left: 0.25em;
+  }
+}
+
+
+.dark {
+
+  background-color: $grey-800;
+
+  #mainnavigation {
+    background-color: $grey-800;
+  }
+
+  #content-header {
+    @extend .full-width;
+    background-color: $grey-900;
+  }
 }
