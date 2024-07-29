@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1a6 (unreleased)
+0.1a6 (2024-07-29)
 ------------------
 
 - Work in progress on the homepage.
