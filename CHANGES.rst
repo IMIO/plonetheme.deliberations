@@ -5,8 +5,8 @@ Changelog
 0.1a6 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Work in progress on the homepage.
+  [aduchene]
 
 0.1a5 (2024-07-01)
 ------------------
