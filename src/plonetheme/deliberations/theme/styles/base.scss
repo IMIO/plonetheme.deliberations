@@ -32,7 +32,8 @@ body {
 
 #content-header {
   @extend .full-width;
-  background-color: $white;
+  box-shadow: $shadow-md;
+  background: $white;
 }
 
 #content {

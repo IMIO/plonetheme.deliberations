@@ -77,8 +77,9 @@
   background-color: $white;
   font-size: 1.2em;
 
-  .container {
+  #portal-globalnav:has(li) {
     border-bottom: 0;
+    width: 100%;
     border-top: 1px solid $gray-400;
   }
 
@@ -112,9 +113,13 @@
       }
     }
   }
-
-
 }
+
+//.portaltype-plone-site {
+//  .navbar-deliberation {
+//    border:0
+//  }
+//}
 
 .dark {
   .navbar-deliberation {
