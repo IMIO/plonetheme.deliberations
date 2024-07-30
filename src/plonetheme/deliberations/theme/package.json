@@ -1,6 +1,5 @@
 {
-  "//": "Put here only theme dependencies, devDependencies should stay outside of the theme folder in the package root.",
-  "name": "deliberations",
+  "name": "plonetheme.deliberations",
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
@@ -29,8 +28,6 @@
     "postcss-loader": "^6.2.1",
     "prettier": "2.3.2",
     "purgecss": "^4.1.3",
-    "react-modal": "^3.16.1",
-    "react-tooltip": "^4.2.21",
     "sass": "^1.52.3",
     "sass-embedded": "1.67.0",
     "sass-loader": "^12.6.0",
@@ -39,6 +36,11 @@
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "@popperjs/core": "^2.11.8"
   },
   "scripts": {
     "build": "webpack --mode=production",
@@ -50,8 +52,5 @@
     "css-prefix-main": "postcss --config postcss.config.js --replace \"styles/*.css\" \"!styles/*.min.css\"",
     "css-minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output styles/theme.min.css styles/theme.css",
     "css-lint": "stylelint \"styles/**/*.scss\" --cache --cache-location .cache/.stylelintcache"
-  },
-  "dependencies": {
-    "bootstrap-icons": "^1.11.3"
   }
 }
