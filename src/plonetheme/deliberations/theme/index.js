@@ -2,6 +2,7 @@ import "./styles/theme.scss";
 import Watermark from '@uiw/watermark.js';
 
 const heightWidthRatio = 0.33;
+
 const createWatermark = (el, width, height, repeat) => {
   const watermark = document.createElement('div');
   watermark.classList.add('watermark');
@@ -21,27 +22,35 @@ const autoWatermark = (el) => {
     createWatermark(el, el.offsetWidth, el.offsetHeight, repeat);
   }
 }
-document.addEventListener("DOMContentLoaded", function (event) {
+
+const cleanWatermarks = () => {
+  document.querySelectorAll('.watermark').forEach(function (el) {
+    el.parentNode.removeChild(el);
+  });
+}
+
+const applyWatermarks = () => {
   document.querySelectorAll('.watermarked').forEach(function (el) {
     autoWatermark(el);
   });
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  applyWatermarks();
 });
 
 document.addEventListener("ItemsLayoutChanged", function (event) {
-  document.querySelectorAll('.watermarked').forEach(function (el) {
-    autoWatermark(el);
-  });
+  cleanWatermarks();
+  applyWatermarks();
 });
 
 
 $(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
   setTimeout(() => {
-    document.querySelectorAll('.watermarked').forEach(function (el) {
-      autoWatermark(el);
-    });
+    cleanWatermarks();
+    applyWatermarks();
   }, 500);
 });
-
 
 
 if (module.hot) {

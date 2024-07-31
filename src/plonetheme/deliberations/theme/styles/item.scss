@@ -1,6 +1,6 @@
 .portaltype-item {
 
-   #content h1, h1 {
+  #content h1, h1 {
     font-size: 1.4em;
     margin-bottom: 1em;
     font-weight: 600;
@@ -57,13 +57,13 @@
         font-weight: 600;
       }
 
-      .type {
+      .bg-file-color {
         margin: 10px;
         border-radius: $rounded;
         width: 50px;
         box-shadow: $shadow-inner;
 
-        background: linear-gradient(to right top, rgb(185, 28, 28), rgb(239, 68, 68));
+        background: linear-gradient(to right top, rgb(107, 114, 128), rgb(209, 213, 219));
         display: flex;
         justify-content: center;
         align-items: center;
@@ -76,22 +76,33 @@
       }
 
 
-      .bg-file-pdf {
+      .bg-red {
         background: linear-gradient(to right top, rgb(185, 28, 28), rgb(239, 68, 68));
       }
 
-      .bg-file-sheet {
+      .bg-green {
         background: linear-gradient(to right top, rgb(21, 128, 61), rgb(34, 197, 94));
       }
 
-      .bg-file-word {
+      .bg-blue {
         background: linear-gradient(to right top, rgb(37, 99, 235), rgb(96, 165, 250));
       }
 
-      .bg-file-other {
+      .bg-grey {
         background: linear-gradient(to right top, rgb(107, 114, 128), rgb(209, 213, 219));
       }
 
+      .bg-yellow {
+          background: linear-gradient(to right top, rgb(234, 179, 8), rgb(250, 204, 21));
+      }
+
+      .bg-light {
+          background: linear-gradient(to right top, rgb(229, 231, 235), rgb(243, 244, 246));
+      }
+
+      .bg-dark {
+          background: linear-gradient(to right top, rgb(31, 41, 55), rgb(75, 85, 99));
+      }
 
       .annex-actions {
         display: flex;
@@ -153,8 +164,38 @@
       font-size: 0.9em;
     }
 
+    #form-widgets-long_representatives_in_charge {
+      width: 100%;
+      display: block;
+
+      span {
+        width: 100%;
+        display: block;
+        text-align: right;
+      }
+    }
+
+    #item-metadata-extra { // Specific for Liège this need to be migrated
+      > span:nth-child(1) {
+        > span:nth-child(1) {
+          font-weight: bold;
+        }
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .selected-option {
+        display: block;
+        width: 100%;
+        text-align: right;
+      }
+    }
+
     .item-metadata-row:last-child {
       border-bottom: 0;
+      padding-bottom: 0;
     }
   }
 }
@@ -169,6 +210,7 @@
   outline-style: solid;
   outline-offset: 2px;
   outline-color: transparent;
+  background-color: $white;
   height: 100%;
   min-height: 100%;
   align-self: stretch;
@@ -207,7 +249,7 @@
     }
   }
 
-  .meeting-title-link {
+  .meeting-title {
     font-size: 1.25em;
     font-weight: bold;
     color: $grey-900;
@@ -237,6 +279,18 @@
 
 }
 
+.offcanvas-header {
+  box-shadow: $shadow-md;
+  z-index: 1;
+}
+
+.offcanvas.offcanvas-end {
+  top: 16px;
+}
+
+.plone-toolbar-top .offcanvas.offcanvas-end {
+  top: 56px;
+}
 
 #meeting-agenda {
   .offcanvas-body {
@@ -264,7 +318,7 @@
       justify-content: center;
       align-items: center;
       width: 65px;
-      font-weight: lighter;
+      font-weight: bold;
     }
 
     .item-title {
@@ -289,11 +343,12 @@
       color: $grey-700;
     }
   }
+
   .meeting-type {
     color: $grey-200;
   }
 
-  .meeting-title-link {
+  .meeting-title {
     color: $grey-100;
   }
 }
