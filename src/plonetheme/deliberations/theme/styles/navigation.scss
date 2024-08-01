@@ -103,7 +103,7 @@
       padding: 0.6em 0.75em 0.5em 0.75em;
     }
 
-    &.current {
+    &.current, &.inPath {
       color: $grey-900;
 
       a {
@@ -114,12 +114,6 @@
     }
   }
 }
-
-//.portaltype-plone-site {
-//  .navbar-deliberation {
-//    border:0
-//  }
-//}
 
 .dark {
   .navbar-deliberation {

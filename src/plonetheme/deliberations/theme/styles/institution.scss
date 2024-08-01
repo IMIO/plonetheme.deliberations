@@ -360,7 +360,7 @@
     flex: 1;
   }
 
-  #item-metadatas-number {
+  #content-metadatas-number {
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -406,17 +406,17 @@
   }
 
 
-  .item-metadatas {
+  .content-metadatas {
     display: flex;
     flex-direction: row;
     font-size: 0.9em;
     color: $grey-800;
 
-    .item-metadatas-col {
+    .content-metadatas-col {
       flex: 1;
     }
 
-    #item-metadatas-number {
+    #content-metadatas-number {
       flex: 0
     }
 

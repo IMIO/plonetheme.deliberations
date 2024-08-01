@@ -68,8 +68,9 @@ body {
   margin-bottom: 0;
 }
 
-
+//.portaltype-publication.template-view #content-core,
 .template-document_view #content-core,
+.template-contact-info #content-core,
 .template-contact-info #content-core,
 .template-sitemap #content-core {
   @extend .card;
