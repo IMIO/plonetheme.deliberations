@@ -37,6 +37,14 @@ const applyWatermarks = () => {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   applyWatermarks();
+  if (typeof Faceted != 'undefined') {
+    jQuery(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
+      setTimeout(() => {
+        cleanWatermarks();
+        applyWatermarks();
+      }, 100);
+    });
+  }
 });
 
 document.addEventListener("ItemsLayoutChanged", function (event) {
@@ -45,14 +53,6 @@ document.addEventListener("ItemsLayoutChanged", function (event) {
 });
 
 
-$(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
-  setTimeout(() => {
-    cleanWatermarks();
-    applyWatermarks();
-  }, 500);
-});
-
-
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
