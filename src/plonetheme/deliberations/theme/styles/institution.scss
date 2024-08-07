@@ -7,17 +7,6 @@
   position: fixed;
 }
 
-.section-seances {
-  #section-byline {
-    display: none;
-  }
-
-  header {
-    display: none;
-  }
-
-}
-
 .form-select:focus {
   border-color: #80bdd8;
   outline: 0;
@@ -254,17 +243,10 @@
 
 
 .meeting-header {
-  //background-color: $white;
-  //display: inline-block;
-  //padding: 1em 2em;
-  //margin-bottom: 0em;
-  //box-shadow: $shadow-md;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid transparentize($grey-400, 0.8);
-  margin-bottom: 2rem;
   padding: 1rem;
 
   h3 {
@@ -290,213 +272,13 @@
   z-index: 5;
 }
 
-.items-container {
-  margin-top: 1.5em;
-  display: grid;
-  grid-auto-flow: row;
 
-  &.grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-gap: 2em;
-
-    .item-card h5 {
-      font-size: 1rem;
-    }
-  }
-
-  &.list {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-gap: 2em;
-
-    .item-card h5 {
-      font-size: 1.2rem;
-    }
-  }
-
-  margin-bottom: 2.5em;
-
-
-}
 
 .meeting-state {
   display: flex;
   justify-content: end;
 
 }
-
-.item-card {
-  @extend .card;
-  position: relative;
-  overflow: hidden;
-  box-shadow: $shadow-md;
-  outline-color: transparent;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-
-  .meeting-title-link {
-    @extend .btn;
-    @extend .btn-secondary;
-    color: $grey-900;
-    background-color: $grey-300;
-    box-shadow: $shadow-sm;
-    border: 0;
-    text-decoration: none;
-    z-index: 10;
-  }
-
-  h5.card-title {
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
-    font-weight: 600;
-
-    p {
-      margin: 0;
-      text-align: justify;
-    }
-  }
-
-  #title-row {
-    flex: 1;
-  }
-
-  #content-metadatas-number {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 0 1em 0 0;
-  }
-
-  .item-number-bg {
-    color: $grey-900;
-    font-size: 5em;
-    font-weight: 100;
-    z-index: 1;
-    letter-spacing: -0.1em;
-    line-height: 56px;
-  }
-
-  .item-number-bg::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 50px;
-    width: 5px;
-    right: 7px;
-    bottom: 18px;
-    background-color: color-mix(in srgb, var(--nav-color), transparent 80%);
-    z-index: 0;
-  }
-
-
-  &:hover {
-    outline-style: solid;
-    outline-offset: 2px;
-    outline-color: color-mix(in srgb, var(--nav-color), transparent 25%);
-    //background-color: transparentize(var(--nav-color), 0.25);
-    transition: outline-color 0.20s ease-in-out;
-    //.item-number-bg {
-    //  color: $white;
-    //}
-
-    .item-number-bg::after {
-      background-color: color-mix(in srgb, var(--nav-color), transparent 25%);
-    }
-  }
-
-
-  .content-metadatas {
-    display: flex;
-    flex-direction: row;
-    font-size: 0.9em;
-    color: $grey-800;
-
-    .content-metadatas-col {
-      flex: 1;
-    }
-
-    #content-metadatas-number {
-      flex: 0
-    }
-
-    .item-metadata-row {
-      max-width: 750px;
-      border-bottom: 1px dashed $grey-600;
-    }
-
-    .item-metadata-row:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  .item-metadata-row {
-    display: flex;
-    align-items: center;
-    padding: 0.5em 0;
-  }
-
-
-  .item-metadata-label {
-    font-weight: 600;
-    flex: 1;
-  }
-
-  .item-metadata {
-    display: flex;
-    align-items: center;
-    margin-right: 1em;
-  }
-}
-
-
-#items-layout-select {
-  display: flex;
-  justify-content: end;
-  height: 35px;
-
-  .btn-group {
-    box-shadow: $shadow;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  button {
-    background-color: $white;
-    margin-left: 0em;
-    border: 0;
-    font-size: 1em;
-    font-weight: 600;
-    color: $grey-900;
-    transition: background-color 0.20s ease-in-out;
-    border-left: 1px solid $grey-300;
-    padding: 7px 0 0 0;
-
-    &:first-child {
-      border-left: 0;
-    }
-
-    .icon-wrapper {
-      width: 35px;
-      display: block;
-      padding: 0;
-      margin: 0;
-      border-bottom: 4px solid transparent;
-    }
-
-    &:hover {
-      background-color: $grey-200;
-    }
-  }
-
-  .btn.active {
-    .icon-wrapper {
-      border-bottom: 4px solid var(--nav-color) !important;
-    }
-  }
-}
-
 
 .dark {
   .faceted-buttons-outer-wrapper {

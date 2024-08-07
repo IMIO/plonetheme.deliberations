@@ -1,11 +1,131 @@
-.delib-btn {
-  color: $grey-900;
-  box-shadow: $shadow-sm;
+//.delib-btn {
+//  color: $grey-900;
+//  box-shadow: $shadow-sm;
+//  border-radius: $rounded;
+//  background-color: $grey-100;
+//  font-weight: 600;
+//  transition: background-color 0.20s ease-in-out;
+//  border: 1px solid $grey-400;
+//  padding: 0 0.25em;
+//  font-size: 20px;
+//}
+
+#faceted-layout-select {
+  display: flex;
+  justify-content: end;
+}
+
+.btn-group-delib {
+  box-shadow: $shadow;
   border-radius: $rounded;
-  background-color: $grey-100;
+  overflow: hidden;
+  height: 35px;
+  background-color: $white;
+
+  & > .btn-delib {
+    border-left: 1px solid $gray-300;
+  }
+
+  & > .btn-delib:first-child {
+    border-left: none;
+  }
+}
+
+.btn-delib {
+  background-color: $white;
+  margin-left: 0em;
+  font-size: 1em;
   font-weight: 600;
+  color: $grey-900;
   transition: background-color 0.20s ease-in-out;
-  border: 1px solid $grey-400;
-  padding: 0 0.25em;
-  font-size: 20px;
+  padding: 7px 0 0 0;
+  border-radius: 0;
+  border: 0;
+
+  &.active, &.focus, &:active, &:hover {
+    background-color: $white !important;
+  }
+
+  &.focus > *, &:active > * {
+    border-bottom: 4px solid color-mix(in srgb, var(--nav-color), transparent 50%);
+  }
+
+  &.active > * {
+    border-bottom: 4px solid var(--nav-color) !important;
+  }
+
+  i {
+    width: 35px;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  &:hover {
+    background-color: $grey-200;
+  }
+}
+
+a.btn-delib {
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-delib-icon-text {
+  display: flex;
+  justify-content: center;
+
+  i {
+    padding-left: 0.5em;
+  }
+
+  span {
+    padding-right: 0.5em;
+    color: $grey-900;
+  }
+}
+
+.btn-group-delib-vertical {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  & > .btn-delib {
+    border-bottom: 1px solid $gray-300;
+    justify-content: stretch;
+    height: 35px;
+    border-radius: 0;
+    border-left: none;
+    width: 100%;
+    span {
+      width: 100%;
+    }
+  }
+  & > .btn-delib:last-child {
+    border-bottom: none;
+  }
+}
+
+
+.dark {
+  .btn-group-delib, .btn-delib {
+    background-color: $grey-900;
+    color: $grey-100;
+    border-color: $grey-700;
+
+    &.active, &.focus, &:active, &:hover {
+      background-color: $grey-900 !important;
+    }
+  }
+
+  .btn-delib-icon-text {
+    span {
+      color: $grey-100;
+    }
+  }
 }

@@ -115,6 +115,26 @@
   }
 }
 
+.nav-pills {
+  background-color: $grey-200;
+  border-radius: $rounded-md;
+  padding: 0.25em 0.25em;
+  color: $grey-900;
+
+  margin: 2em 0em;
+  .nav-link.active {
+    background-color: $grey-50 !important;
+    color: $grey-900;
+    border: 1px solid $grey-200;
+    box-shadow: $shadow;
+    font-weight: $font-weight-bold;
+  }
+
+  .nav-link {
+    color: $grey-700;
+  }
+}
+
 .dark {
   .navbar-deliberation {
     background-color: $grey-900;
@@ -131,8 +151,10 @@
           background-color: $grey-700;
         }
       }
+
       &.current {
         color: $grey-900;
+
         a {
           border-bottom: 5px solid var(--nav-color);
         }

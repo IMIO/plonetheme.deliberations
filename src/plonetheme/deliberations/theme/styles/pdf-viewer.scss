@@ -1,14 +1,24 @@
 .pdf-viewer {
   background-color: $grey-100;
-  //overflow: scroll;
-  //overflow-y: scroll;
-  //height: 500px;
   border-radius: $border-radius;
   border: 1px solid $border-color;
   overflow: hidden;
 
   .btn:disabled {
     border: 0;
+  }
+
+  .btn {
+    color: $grey-900;
+  }
+
+  .btn-group {
+    border-radius: 0;
+    padding: 0 0.5em;
+  }
+
+  .border-end {
+    border-color: $grey-300;
   }
 
   &.pdf-viewer-full-screen {
@@ -19,6 +29,7 @@
     left: 0;
     z-index: 500;
     margin: 25px;
+
     .pdf-viewer-page-viewport {
       height: calc(100% - 50px);
       overflow-y: scroll;
@@ -31,8 +42,9 @@
   }
 
 
-
-
+  .pdf-viewer-page-count {
+    user-select: none;
+  }
 
 
   .pdf-viewer-toolbar {
@@ -42,8 +54,16 @@
     justify-content: space-between;
     border-radius: $border-radius $border-radius 0 0;
     overflow: hidden;
-    padding: 0.5em;
-    position: relative;
+    width: 100%;
+    padding: 0.5em 0;
+    transition: all 0.20s ease-in-out;
+
+    &.fixed-toolbar {
+      position: fixed;
+      top: 56px; //TODO Handle plone toolbar
+      left: 0;
+      box-shadow: $shadow-md;
+    }
   }
 
 
@@ -89,14 +109,36 @@
     width: 100%;
   }
 }
-  .pdf-viewer-full-screen-overlay {
-    background-color: transparentize($grey-900, 0.2);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    border: 0;
-    backdrop-filter: blur(5px);
+
+.pdf-viewer-full-screen-overlay {
+  background-color: transparentize($grey-900, 0.2);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border: 0;
+  backdrop-filter: blur(5px);
+}
+
+
+.dark {
+  .pdf-viewer {
+    background-color: $grey-800;
+    border: 1px solid $gray-700;
   }
+
+  .pdf-viewer-toolbar {
+    background-color: $grey-900;
+    border-bottom: 1px solid $grey-700;
+  }
+
+  .border-end {
+    border-color: $grey-800;
+  }
+
+  .btn {
+    color: $white;
+  }
+}

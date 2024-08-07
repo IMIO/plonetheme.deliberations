@@ -46,15 +46,35 @@ body {
 
   h1 {
     @extend .container;
+    @include font-size(2.0rem);
     padding: 0.5em 0;
     border-bottom: 1px solid $grey-300;
-    font-size: 2em;
+    font-weight: 500;
+  }
+
+  h2 {
+    @include font-size(1.5rem);
+    font-weight: 500;
+  }
+
+  h3 {
+    @include font-size(1.17rem);
+    font-weight: 500;
+  }
+
+  h4 {
+    @include font-size(0.9rem);
+    font-weight: 500;
+  }
+
+  h5 {
+    @include font-size(0.75rem);
     font-weight: 500;
   }
 }
 
 .documentDescription, .documentByline, #content header .lead {
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   font-style: italic;
   color: $grey-700;
   font-size: 1.1em;
@@ -85,7 +105,8 @@ body {
 
 .formControls {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
 
   > * {
     margin-left: 0.25em;
@@ -112,5 +133,13 @@ body {
   #content-header {
     @extend .full-width;
     background-color: $grey-900;
+  }
+
+  #section-byline {
+    color: $grey-200 !important;
+  }
+
+  .documentDescription, .documentByline, #content header .lead {
+    color: $grey-200;
   }
 }
