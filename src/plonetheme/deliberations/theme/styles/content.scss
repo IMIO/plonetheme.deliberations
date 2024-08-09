@@ -2,6 +2,7 @@
 
   #content h1, h1 {
     font-size: 1.4em;
+    padding: 0;
     margin-bottom: 1em;
     font-weight: 600;
   }
@@ -32,7 +33,6 @@
     }
   }
 }
-
 
 .meeting-card {
   display: flex;
@@ -138,6 +138,10 @@
       text-decoration: none;
       color: $grey-900;
     }
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   .item-line {
@@ -169,12 +173,27 @@
 
 }
 
+#publication-dates {
+  border-right: 1px solid $grey-300;
+}
+
+.item-content {
+  h3 {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+}
 
 .dark {
   .meeting-card-icon {
     i {
       color: $grey-700;
     }
+  }
+
+  #publication-dates {
+    border-color: $grey-700;
   }
 
   .meeting-type {
@@ -186,10 +205,15 @@
   }
 }
 
-.item-content {
-  h3 {
-    font-size: 1.25em;
-    margin-bottom: 1em;
-    font-weight: 600;
+@include media-breakpoint-down(lg) {
+  #publication-dates {
+    border-right: 0;
+    padding-top: 0.5rem;
+    border-top: 2px solid $grey-300;
   }
+}
+@include media-breakpoint-down(md) {
+    .portaltype-item .item-content {
+      padding: 1rem 1rem;
+    }
 }

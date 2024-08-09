@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // [...popoverTriggerList].map(
   //   (popoverTriggerEl) => new Popover(popoverTriggerEl)
   // );
-  // applyWatermarks();
+  applyWatermarks();
   if (typeof Faceted != "undefined") {
     jQuery(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
       setTimeout(() => {

@@ -1,10 +1,162 @@
 .template-facetednavigation_view header {
   display: none;
+
+  h1 {
+    @extend .container;
+    margin-bottom: 0;
+    padding: calc(var(--bs-gutter-x) * 0.5) !important;
+  }
 }
+
 #center-area.faceted-area.center-area {
   padding-left: 0;
   padding-right: 0;
 }
+
+.faceted-widgets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 2.5em;
+  grid-gap: 2em;
+
+
+  .faceted-widget {
+    border: 0 !important;
+
+    legend {
+      font-size: 0.9em;
+    }
+
+    fieldset {
+      border: 0 !important;
+      padding: 0 !important;
+    }
+
+    select, input[type="text"] {
+      background-color: #F1F1F1;
+      border-radius: 9999px;
+      border: 0;
+      padding: 0.5em 1.5em;
+    }
+
+    .faceted-text-search {
+      display: block;
+      position: relative;
+      padding-right: 0;
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 0;
+        color: $white;
+        background-color: $grey-700;
+        border-radius: $rounded-full;
+        height: 40px;
+        width: 80px;
+
+      }
+    }
+
+
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .faceted-widgets {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    margin-bottom: 2.5em;
+    grid-gap: 2em;
+  }
+}
+
+.faceted-buttons-outer-wrapper {
+  @extend .full-width;
+  background-color: $white;
+}
+
+.faceted-area.top-area {
+  @extend .container;
+  background-color: transparent;
+  position: relative;
+}
+
+.faceted-area.top-area:before {
+  content: " ";
+  background-color: $white;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  position: absolute;
+  margin-left: -50vw;
+  left: 50%;
+  z-index: -1;
+  box-shadow: $shadow-md;
+}
+
+.template-facetednavigation_view #mainnavigation {
+  margin-bottom: 0;
+}
+
+.faceted-sections-buttons {
+  float: none !important;
+  display: flex;
+  justify-content: right;
+  padding-top: 1.75em;
+  padding-bottom: 0.5em;
+}
+
+#faceted-results .faceted_loading {
+  background: url('../assets/ajax-spinner.svg') no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 150px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.faceted-sections-buttons .faceted-sections-buttons-more,
+.faceted-sections-buttons .faceted-sections-buttons-less {
+  color: $grey-900 !important;
+  text-decoration: none;
+
+  .faceted-filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-right: -12px;
+    border-radius: 25px;
+    width: 245px;
+    height: 40px;
+    background-color: #F1F1F1;
+
+    i {
+      font-size: 1.75em;
+    }
+
+  }
+
+  a {
+    color: $white !important;
+    text-decoration: none;
+    background-color: $grey-700;
+    border-radius: 100%;
+  }
+
+  .label {
+    margin-left: 0.5em;
+  }
+
+  i {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
 .faceted-container {
   margin-top: 1.5em;
   display: grid;
@@ -31,6 +183,10 @@
   margin-bottom: 2.5em;
 
 
+}
+
+.faceted-form .faceted-widget-loading {
+  background: none !important;
 }
 
 .item-card {
@@ -70,6 +226,7 @@
 
   #content-metadatas-number {
     min-width: 150px;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -158,5 +315,27 @@
     display: flex;
     align-items: center;
     margin-right: 1em;
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .faceted-container.grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .template-facetednavigation_view header {
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    //display: none;
+    background-color: $white;
   }
 }
