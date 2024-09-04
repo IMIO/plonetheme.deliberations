@@ -1,20 +1,24 @@
-.state-badge {
+.badge {
   border-radius: $rounded;
-  padding: 2px 12px;
+  padding: 4px 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   font-size: 12px;
   letter-spacing: 0.5px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
+
   white-space: nowrap;
+
+  &.state-badge {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
 
   &.success,
   &.state-decision,
   &.state-published,
   &.added {
     background-color: $green-500;
-
   }
 
   &.danger,
@@ -28,6 +32,36 @@
   &.modified {
     background-color: $orange-400;
   }
+
+  &.info {
+    background-color: $blue-500;
+  }
+
+  &.timestamp-badge {
+    z-index: 1;
+    overflow: hidden;
+    width: 36px;
+    transition: all 0.25s ease-in-out;
+    text-transform: uppercase;
+
+    span {
+      width: 0;
+      transition: all 0.25s ease-in-out;
+      display: inline-block;
+      margin: 0;
+      padding: 0 0 0 0px;
+      border: 0;
+      opacity: 0;
+    }
+  }
 }
 
-
+.item-card:hover {
+  .timestamp-badge {
+    width: 200px;
+    span {
+      width: 100%;
+      opacity: 100%;
+    }
+  }
+}
