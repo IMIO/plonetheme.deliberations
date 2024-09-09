@@ -37,6 +37,15 @@
     background-color: $blue-500;
   }
 
+
+  &.state-planned {
+    background-color: $grey-500;
+  }
+
+  &.state-unpublished {
+    background-color: $grey-800;
+  }
+
   &.timestamp-badge {
     z-index: 1;
     overflow: hidden;
@@ -59,9 +68,18 @@
 .item-card:hover {
   .timestamp-badge {
     width: 200px;
+
     span {
       width: 100%;
       opacity: 100%;
     }
   }
+}
+
+#section-byline .badge {
+  border: 0;
+  padding: 0;
+  font-size: 1rem;
+  text-decoration: 0;
+  box-shadow: none;
 }
