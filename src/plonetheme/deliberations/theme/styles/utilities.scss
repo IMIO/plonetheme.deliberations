@@ -45,6 +45,17 @@
   margin-bottom: 2.5rem !important;
 }
 
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -5px;
+}
+ul.dashed > li:before {
+  content: "-";
+  text-indent: -5px;
+  height: 500px !important;
+}
 
 .watermarked {
   position: relative;
