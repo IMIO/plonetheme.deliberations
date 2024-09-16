@@ -47,27 +47,40 @@
   }
 
   &.timestamp-badge {
+
+    &.animated {
+      width: 36px;
+      transition: all 0.25s ease-in-out;
+
+      span {
+        width: 0;
+        transition: all 0.25s ease-in-out;
+        display: inline-block;
+        margin: 0;
+        padding: 0 0 0 0px;
+        border: 0;
+        opacity: 0;
+      }
+
+      i {
+        padding-right: 0;
+      }
+    }
+
     z-index: 1;
     overflow: hidden;
-    //width: 36px;
-    transition: all 0.25s ease-in-out;
     text-transform: uppercase;
 
-    span {
-      width: 0;
-      transition: all 0.25s ease-in-out;
-      display: inline-block;
-      margin: 0;
-      padding: 0 0 0 0px;
-      border: 0;
-      opacity: 0;
+    i {
+      padding-right: 12px;
     }
   }
 }
 
 .item-card:hover {
-  .timestamp-badge {
-    //width: 200px;
+  .timestamp-badge.animated {
+    width: 200px;
+
     span {
       width: 100%;
       opacity: 100%;
