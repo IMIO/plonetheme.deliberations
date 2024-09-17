@@ -2,11 +2,13 @@ Changelog
 =========
 
 
-0.1a7 (unreleased)
+1.0b1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Plone 6 ready.
+  [aduchene]
+- publications theming.
+  [aduchene]
 
 0.1a6 (2024-07-29)
 ------------------
