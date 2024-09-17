@@ -2,3 +2,4 @@ graft src/plonetheme
 graft docs
 include *.rst
 global-exclude *.pyc
+prune src/plonetheme/deliberations/theme/node_modules

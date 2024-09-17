@@ -1,5 +1,0 @@
-========================
-plonetheme.deliberations
-========================
-
-User documentation
