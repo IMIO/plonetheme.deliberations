@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b1 (unreleased)
+1.0b1 (2024-09-17)
 ------------------
 
 - Plone 6 ready.
