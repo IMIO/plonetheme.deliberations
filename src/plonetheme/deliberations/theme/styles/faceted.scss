@@ -201,13 +201,17 @@
 
   .meeting-title-link {
     @extend .btn;
-    @extend .btn-secondary;
+    @extend .btn-light;
     color: $grey-900;
-    background-color: $grey-300;
+    background-color: $white;
+    border: 1px solid $grey-200;
     box-shadow: $shadow-sm;
-    border: 0;
     text-decoration: none;
     z-index: 10;
+  }
+
+  .meeting-title-link:hover{
+    background-color: $grey-200;
   }
 
   .card-title {

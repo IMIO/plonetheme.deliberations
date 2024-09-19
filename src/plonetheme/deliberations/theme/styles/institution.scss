@@ -31,7 +31,6 @@
 }
 
 
-
 #center-area {
   #center-content-area {
     @extend .container;
@@ -60,17 +59,13 @@
   &.disabled {
     width: 36px;
     text-align: center;
-    padding-top: 4px;
+    background-color: $grey-100;
   }
 
   &.active {
     .page-link {
       border-bottom: 4px solid var(--nav-color);
     }
-  }
-
-  .page-link {
-    transition: none;
   }
 
   .page-link:focus {
@@ -97,6 +92,8 @@
     width: 35px;
     margin: 0;
     text-align: center;
+    transition: none;
+    height: 100%;
   }
 
   .label {
@@ -134,7 +131,6 @@
   position: relative;
   z-index: 5;
 }
-
 
 
 .meeting-state {
