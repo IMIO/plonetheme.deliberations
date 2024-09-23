@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.0 (unreleased)
-------------------
+1.0 (2024-09-23)
+----------------
 
 - Misc. fixes and tweaks.
   [aduchene]
