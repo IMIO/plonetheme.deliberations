@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-1.0b2 (unreleased)
+1.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Misc. fixes and tweaks.
+  [aduchene]
 
 
 1.0b1 (2024-09-17)
