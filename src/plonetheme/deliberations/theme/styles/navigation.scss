@@ -84,6 +84,7 @@
 
 
 .navbar-deliberation {
+
   @extend .container-fluid;
   background-color: $white;
   font-size: 1.2em;
@@ -96,27 +97,39 @@
 
 
   .nav-item {
-    padding: 0;
-    margin: 0 0.25em;
+    margin: 0 0.0em;
     font-weight: 600;
     background-color: $white !important;
 
     a {
       border-bottom: 5px solid transparent;
+      border-top: 1px solid transparent;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      color: $grey-800;
+
+      &:focus {
+        background-color: transparent;
+        text-decoration: none;
+        border-bottom: 5px solid color-mix(in srgb, var(--nav-color), transparent 50%);
+        transition: background-color 0.20s ease-in-out;
+        box-shadow: none;
+      }
 
       &:hover {
         background-color: $grey-50;
-        border: 0;
-        text-decoration: none;
-        border-bottom: 5px solid color-mix(in srgb, var(--nav-color), transparent 85%);
-        transition: background-color 0.20s ease-in-out;
+        border-radius: 0 0 $rounded $rounded;
+        box-shadow: $shadow-inner;
+        border-top: 1px solid $grey-200;
+        border-left: 1px solid $grey-200;
+        border-right: 1px solid $grey-200;
       }
 
       padding: 0.6em 0.75em 0.5em 0.75em;
     }
 
     &.current, &.inPath {
-      color: $grey-900;
+      color: $grey-800;
 
       a {
         background-color: transparent;

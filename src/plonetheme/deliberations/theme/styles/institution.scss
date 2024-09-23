@@ -1,11 +1,4 @@
-.outer-wrapper:before {
-  content: " ";
-  display: block;
-  width: 100%;
-  z-index: 10;
-  border-top: 16px solid var(--nav-color);
-  position: fixed;
-}
+
 
 .form-select:focus {
   border-color: #80bdd8;
@@ -14,11 +7,10 @@
 }
 
 .form-control:focus {
-  color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
   border-color: #80bdd8;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--nav-color), transparent 50%);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--nav-color), transparent 50%) !important;
 }
 
 #content-header {
@@ -125,7 +117,7 @@
 
 .meeting-custom-info {
   @extend .card;
-  padding: 1em 2em;
+  padding: 1.5rem;
   box-shadow: $shadow-md;
   margin-bottom: 2.5em;
   position: relative;
@@ -136,7 +128,6 @@
 .meeting-state {
   display: flex;
   justify-content: end;
-
 }
 
 .dark {

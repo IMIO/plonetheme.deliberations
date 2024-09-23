@@ -175,6 +175,10 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-gap: 2em;
 
+    .item-metadata-row {
+      max-width: 50%;
+    }
+
     .item-card h5 {
       font-size: 1.2rem;
     }
@@ -210,7 +214,7 @@
     z-index: 10;
   }
 
-  .meeting-title-link:hover{
+  .meeting-title-link:hover {
     background-color: $grey-200;
   }
 
@@ -320,7 +324,6 @@
     }
 
     .item-metadata-row {
-      max-width: 750px;
       border-bottom: 1px dashed $grey-600;
     }
 

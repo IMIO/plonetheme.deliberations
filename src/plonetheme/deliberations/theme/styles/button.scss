@@ -75,6 +75,44 @@ a.btn-delib {
 }
 
 
+.btn-delib-icon-text {
+  display: flex;
+  justify-content: center;
+
+  i {
+    padding-left: 0.5em;
+  }
+
+  span {
+    padding-right: 0.5em;
+    color: $grey-900;
+  }
+}
+
+.btn-group-delib-vertical {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  & > .btn-delib {
+    border-bottom: 1px solid $gray-300;
+    justify-content: stretch;
+    height: 35px;
+    border-radius: 0;
+    border-left: none;
+    width: 100%;
+    span {
+      width: 100%;
+    }
+  }
+  & > .btn-delib:last-child {
+    border-bottom: none;
+  }
+}
+
+
+
 
 .actions-toolbar {
   display: flex;

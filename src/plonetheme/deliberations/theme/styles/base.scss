@@ -1,12 +1,13 @@
 html {
   min-height: 100vh;
+  overflow-x: hidden; // Prevent horizontal scrollbars when using full-width containers
 }
 
 :root {
   --nav-color: #{$delib-primary};
 }
 
-body {
+body { // Pull the footer to the bottom of the page
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,9 +15,18 @@ body {
   .outer-wrapper {
     flex: 1;
   }
-
   background-color: $grey-100;
 }
+
+.outer-wrapper:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  z-index: 1040; // Same as plone edit bar
+  border-top: 16px solid var(--nav-color);
+  position: fixed;
+}
+
 
 #mainnavigation {
   background-color: $white;
@@ -36,7 +46,6 @@ body {
 
 #content-header {
   margin-top: 16px;
-  @extend .full-width;
   box-shadow: $shadow-md;
   background: $white;
 }
@@ -135,7 +144,6 @@ body {
   }
 
   #content-header {
-    @extend .full-width;
     background-color: $grey-900;
   }
 
@@ -165,4 +173,16 @@ textarea.form-control {
 .help-link:hover {
   font-style: italic;
   color: $grey-900;
+}
+
+
+.form-check-input:checked {
+  background-color: var(--nav-color);
+  border-color: var(--nav-color);
+}
+
+.form-check-input:focus {
+  border-color: #80bdd8;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 177, 0.25);
 }

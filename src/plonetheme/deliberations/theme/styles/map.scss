@@ -21,6 +21,8 @@
       width: 1.75em;
       height: 1.75em;
       line-height: 1.75em;
+      text-decoration: none !important;
+      color: $grey-900;
     }
 
     .leaflet-control-zoom-in {

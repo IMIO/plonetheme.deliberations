@@ -7,12 +7,35 @@
   margin-right: -50vw;
 }
 
+// Handle the toolbar width in every case possible
+
+@include media-breakpoint-down(md) {
+  body.plone-toolbar-top {
+    .full-width {
+      width: calc(100vw - var(--plone-toolbar-width-collapsed));
+      left: calc(50% - var(--plone-toolbar-width-collapsed) / 2);
+      margin-left: calc(-50vw + var(--plone-toolbar-width-collapsed));
+      margin-right: calc(-50vw - 0px);
+    }
+  }
+}
+
 .plone-toolbar-left {
   .full-width {
-    width: calc(100vw - 60px);
+    width: calc(100vw - var(--plone-toolbar-width-collapsed));
     position: relative;
-    left: calc(50% - 30px);
-    margin-left: calc(-50vw + 60px);
+    left: calc(50% - var(--plone-toolbar-width-collapsed) / 2);
+    margin-left: calc(-50vw + var(--plone-toolbar-width-collapsed));
+    margin-right: calc(-50vw - 0px);
+  }
+}
+
+.plone-toolbar-left-expanded {
+  .full-width {
+    width: calc(100vw - var(--plone-toolbar-width));
+    position: relative;
+    left: calc(50% - var(--plone-toolbar-width) / 2);
+    margin-left: calc(-50vw + var(--plone-toolbar-width));
     margin-right: calc(-50vw - 0px);
   }
 }
@@ -48,9 +71,11 @@
 ul.dashed {
   list-style-type: none;
 }
+
 ul.dashed > li {
   text-indent: -5px;
 }
+
 ul.dashed > li:before {
   content: "-";
   text-indent: -5px;
