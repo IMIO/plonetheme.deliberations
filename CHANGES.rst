@@ -5,15 +5,14 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Misc. fixes and tweaks.
+  [aduchene]
 
 1.0 (2024-09-23)
 ----------------
 
 - Misc. fixes and tweaks.
   [aduchene]
-
 
 1.0b1 (2024-09-17)
 ------------------
@@ -35,13 +34,11 @@ Changelog
 - Work in progress.
   [aduchene]
 
-
 0.1a4 (2024-04-17)
 ------------------
 
 - Fix bad release.
   [aduchene]
-
 
 0.1a3 (2024-04-17)
 ------------------
@@ -49,13 +46,11 @@ Changelog
 -Work in progress.
  [aduchene]
 
-
 0.1a2 (2024-04-16)
 ------------------
 
 - Change setup.py.
   [aduchene]
-
 
 0.1a1 (2024-04-16)
 ------------------

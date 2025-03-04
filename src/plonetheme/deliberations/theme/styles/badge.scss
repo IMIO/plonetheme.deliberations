@@ -88,10 +88,23 @@
   }
 }
 
-#section-byline .badge {
-  border: 0;
-  padding: 0;
-  font-size: 1rem;
-  text-decoration: 0;
-  box-shadow: none;
+#section-byline {
+  .badge {
+    border: 0;
+    padding: 0;
+    font-size: 1rem;
+    text-decoration: 0;
+    box-shadow: none;
+  }
+
+  .state-expired {
+    @extend .badge;
+    background-color: $red-500;
+    color: $white;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    font-style: normal;
+    padding: 4px 12px;
+  }
+
 }
