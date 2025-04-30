@@ -15,6 +15,7 @@ body { // Pull the footer to the bottom of the page
   .outer-wrapper {
     flex: 1;
   }
+
   background-color: $grey-100;
 }
 
@@ -155,12 +156,16 @@ body { // Pull the footer to the bottom of the page
     color: $grey-200;
   }
 }
+
 textarea.form-control {
   min-height: 300px;
 }
+
 #viewlet-below-content-title > a[title="Horodaté"] {
   display: none;
-} // TODO: Remove this when we have a better solution
+}
+
+// TODO: Remove this when we have a better solution
 
 
 .help-link {
@@ -186,3 +191,45 @@ textarea.form-control {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(0, 123, 177, 0.25);
 }
+
+.datagridwidget-hidden-data {
+  display: none;
+  border-right: 1px solid;
+}
+
+.template-manage-settings, .template-manage-users-listing, .portaltype-institution.template-edit {
+  --grid-line-color: #eeeeef;
+  background-color: #ffffff;
+  background-image: linear-gradient(var(--grid-line-color) 2px, transparent 2px),
+  linear-gradient(90deg, var(--grid-line-color) 2px, transparent 2px),
+  linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+  linear-gradient(90deg, var(--grid-line-color) 1px, #f8f9fa 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  /* Add these so the pseudo-element can sit atop your pattern */
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    /* Fill the entire area */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Let clicks pass through */
+    pointer-events: none;
+    z-index: -1;
+    /* A gradient that’s fully opaque in the horizontal center,
+       then fades out to transparent at both edges */
+    background: linear-gradient(
+                    to right,
+                    rgba(248, 249, 250, 0) 0%,
+                    rgba(248, 249, 250, 1) 25%,
+                    rgba(248, 249, 250, 1) 75%,
+                    rgba(248, 249, 250, 0) 100%
+    );
+  }
+}
+
