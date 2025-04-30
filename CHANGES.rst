@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.2 (2025-04-30)
 ----------------
 
 - Manage institution theming.
