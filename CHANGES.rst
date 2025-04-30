@@ -5,8 +5,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Manage institution theming.
+  [aduchene]
 
 1.1 (2025-03-04)
 ----------------
