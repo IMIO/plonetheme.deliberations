@@ -1,0 +1,60 @@
+.template-edit {
+
+}
+
+#form:not(#login-form) {
+  .autotoc-nav {
+    position: sticky;
+    top: 4em;
+    padding: 0.2em;
+    background-color: $gray-200;
+    border: 1px solid $grey-400;
+    z-index: 1000;
+    border-radius: $rounded-md;
+    box-shadow: $shadow;
+
+    a {
+      color: $gray-700;
+      text-decoration: none;
+      border-radius: $rounded-md;
+      margin: 0;
+    }
+
+    a.active {
+      background-color: $grey-50;
+      color: $grey-900;
+      border: 1px solid $grey-200;
+      box-shadow: $shadow;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .formControls {
+    position: sticky;
+    bottom: 0.5em;
+    padding: 0.5em 0.5em;
+    background-color: $gray-200;
+    border: 1px solid $grey-400;
+    z-index: 1000;
+    border-radius: $rounded-md;
+    box-shadow: $shadow;
+  }
+}
+
+
+.modal-content {
+  .formControls {
+    display: none; // Weidly enough, the formControls is duplicated and empty insidethe modal
+  }
+}
+
+.actions-bar {
+  position: sticky;
+  bottom: 0.5em;
+  padding: 0.5em 0.5em;
+  background-color: $gray-200;
+  border: 1px solid $grey-400;
+  z-index: 1000;
+  border-radius: $rounded-md;
+  box-shadow: $shadow;
+}

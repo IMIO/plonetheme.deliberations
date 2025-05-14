@@ -5,8 +5,8 @@ Changelog
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Floating buttons in forms.
+  [aduchene]
 
 1.2 (2025-04-30)
 ----------------

@@ -5,6 +5,7 @@ html {
 
 :root {
   --nav-color: #{$delib-primary};
+  --links-color: #{$delib-primary};
 }
 
 body { // Pull the footer to the bottom of the page
@@ -182,8 +183,8 @@ textarea.form-control {
 
 
 .form-check-input:checked {
-  background-color: var(--nav-color);
-  border-color: var(--nav-color);
+  background-color: var(--links-color);
+  border-color: var(--links-color);
 }
 
 .form-check-input:focus {
