@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.3 (unreleased)
+1.3 (2025-09-08)
 ----------------
 
 - Floating buttons in forms.
