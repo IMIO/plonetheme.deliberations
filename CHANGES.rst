@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.4 (unreleased)
+1.4 (2025-09-08)
 ----------------
 
 - Re-release.
