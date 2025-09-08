@@ -5,7 +5,8 @@ Changelog
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Re-release.
+  [aduchene]
 
 
 1.3 (2025-09-08)
