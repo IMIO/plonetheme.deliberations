@@ -7,6 +7,8 @@ Changelog
 
 - Floating buttons in forms.
   [aduchene]
+- Theming about timestamping form.
+  [aduchene]
 
 1.2 (2025-04-30)
 ----------------

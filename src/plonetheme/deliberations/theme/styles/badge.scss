@@ -28,6 +28,7 @@
   }
 
   &.warning,
+  &.state-proposed,
   &.state-in_project,
   &.modified {
     background-color: $orange-400;

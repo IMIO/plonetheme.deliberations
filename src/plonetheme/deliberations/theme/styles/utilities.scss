@@ -122,3 +122,31 @@ ul.dashed > li:before {
   opacity: 0.08;
   text-shadow: rgba(0, 0, 0, 0.7) 0 0 7px;
 }
+
+.bg-red {
+  background: linear-gradient(to right top, rgb(185, 28, 28), rgb(239, 68, 68));
+}
+
+.bg-green {
+  background: linear-gradient(to right top, rgb(21, 128, 61), rgb(34, 197, 94));
+}
+
+.bg-blue {
+  background: linear-gradient(to right top, rgb(37, 99, 235), rgb(96, 165, 250));
+}
+
+.bg-grey {
+  background: linear-gradient(to right top, rgb(107, 114, 128), rgb(209, 213, 219));
+}
+
+.bg-yellow {
+  background: linear-gradient(to right top, rgb(234, 179, 8), rgb(250, 204, 21));
+}
+
+.bg-light {
+  background: linear-gradient(to right top, rgb(229, 231, 235), rgb(243, 244, 246));
+}
+
+.bg-dark {
+  background: linear-gradient(to right top, rgb(31, 41, 55), rgb(75, 85, 99));
+}

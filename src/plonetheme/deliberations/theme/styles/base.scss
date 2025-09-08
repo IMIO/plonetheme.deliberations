@@ -29,7 +29,6 @@ body { // Pull the footer to the bottom of the page
   position: fixed;
 }
 
-
 #mainnavigation {
   background-color: $white;
   box-shadow: $shadow-md;
@@ -53,12 +52,6 @@ body { // Pull the footer to the bottom of the page
 }
 
 #content {
-  //@extend .full-width;
-  //background-color: $white;
-  //box-shadow: $shadow-md;
-  //margin-top: 0px;
-  //z-index: 2; // This will hide the top shadow
-
   h1 {
     @extend .container;
     @include font-size(2.0rem);
@@ -168,7 +161,6 @@ textarea.form-control {
 
 // TODO: Remove this when we have a better solution
 
-
 .help-link {
   font-style: italic;
   text-decoration: none;
@@ -234,3 +226,53 @@ textarea.form-control {
   }
 }
 
+// Document generator viewlet
+#action-bar {
+  margin: 1rem auto;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  text-align: left !important;
+  background: #e9ecef;
+  //display: flex;
+  position: relative;
+  box-shadow: $shadow-inner;
+
+  .action-section {
+    flex: 1;
+    padding: 0.5rem !important;
+  }
+
+  .action-section:not(:last-child) {
+    border-right: 1px solid #d9d9d9;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    color: #1c1c1c;
+    padding-bottom: 0.25rem !important;
+    padding-top: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    border-bottom: 1px dashed #afafaf;
+  }
+
+  ul.action-bar-actions {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      margin-right: 0.5rem;
+      .btn {
+          font-size: 0.85rem !important;
+      }
+      .dropdown-item {
+        font-size: 0.85rem !important;
+      }
+    }
+    .dropdown-menu {
+      li {
+        margin-right: 0;
+      }
+    }
+  }
+}
