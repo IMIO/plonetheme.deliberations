@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: row;
     box-shadow: $shadow;
-    overflow: hidden;
 
     .title {
       padding: 0.25em 0.5em;
@@ -70,6 +69,9 @@
       align-items: center;
       background-color: $grey-200;
       border-top: 1px solid $grey-300;
+      overflow: hidden;
+      width: 50px;
+
 
       a {
         text-decoration: none;
@@ -77,6 +79,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: $rounded;
 
         &:hover, &.active, &:focus {
           color: $grey-900;
@@ -103,6 +106,17 @@
   }
 }
 
+@include media-breakpoint-down(lg) {
+  .annexes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .annexes {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
 
 .card-link {
   .filled-link {

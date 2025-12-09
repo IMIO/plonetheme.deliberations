@@ -1,8 +1,45 @@
+#global_statusmessage {
+  @extend .full-width;
+  padding: 0;
+}
+
+.row:has(#global_statusmessage) {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  --bs-gutter-x: 0rem;
+
+  #global_statusmessage .portalMessage {
+    border: 0;
+    background: none;
+    margin-bottom: 0;
+    @extend .container;
+  }
+
+
+  @each $type in map-keys($theme-colors) {
+    #global_statusmessage:has(.alert-#{$type}) {
+      .portalMessage:not(:first-child) {
+        border-top: 1px solid var(--bs-#{$type}-border-subtle);
+      }
+    }
+  }
+}
+
+@each $type in map-keys($theme-colors) {
+  #global_statusmessage:has(.alert-#{$type}) {
+    background-color: var(--bs-#{$type}-bg-subtle);
+    border-bottom: 5px solid var(--bs-#{$type}-border-subtle);
+    border-top: 1px solid var(--bs-#{$type}-border-subtle);
+  }
+}
+
 .alert {
   border-radius: 0;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
+  margin-bottom: 1rem;
 
   p:last-child {
     margin-bottom: 0;
@@ -61,6 +98,16 @@
     padding-top: calc(0.5rem + 4px);
   }
 }
+
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  .alert {
+    margin-bottom: 0;
+  }
+}
+
 
 .dark {
   .alert.with-icon.alert-warning .alert-icon {

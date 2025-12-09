@@ -130,6 +130,7 @@
     }
   }
 }
+
 #form:not(#login-form) {
   .autotoc-nav {
     position: sticky;
@@ -267,5 +268,34 @@
     padding: 1em;
     color: $grey-600;
     font-weight: bold;
+  }
+}
+
+.autotoc-nav a.has-tab-error::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: $danger;
+  border-radius: 50%;
+  margin-right: 6px;
+  margin-bottom: 3px;
+  vertical-align: middle;
+}
+
+.error-link {
+  color: var(--bs-danger-text-emphasis);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  i {
+    display: inline-block;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
   }
 }

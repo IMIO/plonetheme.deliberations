@@ -5,8 +5,8 @@ Changelog
 1.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Theming for login page, publication timeline, publication related items.
+  [aduchene]
 
 1.4 (2025-09-08)
 ----------------
