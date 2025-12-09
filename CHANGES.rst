@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.5 (unreleased)
+1.5 (2025-12-09)
 ----------------
 
 - Theming for login page, publication timeline, publication related items.
