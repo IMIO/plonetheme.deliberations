@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.6 (unreleased)
+1.6 (2025-12-10)
 ----------------
 
 - Minor tweaks.
