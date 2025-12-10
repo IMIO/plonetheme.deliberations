@@ -31,6 +31,7 @@
     color: $grey-900;
     text-align: center;
     display: inline-block;
+    width: 100%;
 
     .text-container {
       display: inline-flex;
@@ -120,9 +121,10 @@
 @include media-breakpoint-down(xl) {
   .hero-img-wrapper img {
     height: 300px;
+    margin-left: 20px;
   }
   .hero-content {
-    margin: 3rem 0;
+    margin: 0rem 0;
   }
   :root {
     --homepage-hero-font-size: 3rem;

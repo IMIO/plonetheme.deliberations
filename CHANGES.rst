@@ -5,7 +5,8 @@ Changelog
 1.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Minor tweaks.
+  [aduchene]
 
 
 1.5 (2025-12-09)
