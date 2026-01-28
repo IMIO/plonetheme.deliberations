@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.7 (unreleased)
+1.7 (2026-01-28)
 ----------------
 
 - Minor changes regarding some z-index issues.
