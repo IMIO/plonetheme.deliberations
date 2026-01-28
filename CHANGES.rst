@@ -5,7 +5,8 @@ Changelog
 1.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Minor changes regarding some z-index issues.
+  [aduchene]
 
 
 1.6 (2025-12-10)
@@ -13,7 +14,6 @@ Changelog
 
 - Minor tweaks.
   [aduchene]
-
 
 1.5 (2025-12-09)
 ----------------
@@ -26,7 +26,6 @@ Changelog
 
 - Re-release.
   [aduchene]
-
 
 1.3 (2025-09-08)
 ----------------

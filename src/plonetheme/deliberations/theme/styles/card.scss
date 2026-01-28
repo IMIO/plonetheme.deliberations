@@ -51,6 +51,7 @@
 #meeting-card {
   position: relative;
   overflow: hidden;
+  z-index: 0;
 
   .card-body {
     z-index: 1;

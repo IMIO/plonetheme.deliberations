@@ -12,8 +12,8 @@
 }
 
 #content-header {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 
   #portal-logo {
     max-width: 250px;
