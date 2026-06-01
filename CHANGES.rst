@@ -5,7 +5,10 @@ Changelog
 1.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Style the ``website-url`` navigation item (return link to the
+  institution's own website): pushed to the far right on desktop and
+  flagged with an outbound-link icon. [DELIBE-112]
+  [aduchene]
 
 
 1.7 (2026-01-28)

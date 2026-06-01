@@ -138,6 +138,23 @@
       }
     }
   }
+
+  // Link back to the institution's own website: set apart from the real
+  // navigation sections - pushed to the far right on desktop and flagged
+  // with an outbound-link icon.
+  .nav-item.website-url {
+    @include media-breakpoint-up(lg) {
+      margin-left: auto;
+    }
+
+    .nav-link::after {
+      font-family: "bootstrap-icons" !important;
+      content: "\f1c5"; // bi-box-arrow-up-right
+      margin-left: 0.4em;
+      font-size: 0.85em;
+      vertical-align: baseline;
+    }
+  }
 }
 
 .nav-pills {
