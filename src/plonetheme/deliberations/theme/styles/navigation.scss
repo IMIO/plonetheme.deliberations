@@ -92,7 +92,19 @@
   #portal-globalnav:has(li) {
     border-bottom: 0;
     width: 100%;
-    border-top: 1px solid $gray-400;
+    position: relative;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      pointer-events: none;
+      background-image: radial-gradient(farthest-side at center top, $grey-600 0%, rgba(255, 255, 255, 0) 100%);
+    }
   }
 
 
