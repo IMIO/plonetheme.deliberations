@@ -38,18 +38,22 @@ const applyWatermarks = () => {
   });
 };
 
+// Flag <html> as early as possible — at top level, NOT in DOMContentLoaded.
+// The theme bundle is a synchronous <head> script, so this runs before <body>
+// (and the toolbar) is parsed/painted: the off-canvas CSS is in effect at first
+// paint, so the toolbar never flashes open-then-closed on each page load. If
+// the JS fails to load entirely, the flag is absent and the SCSS leaves the
+// toolbar visible (never trapped off-screen). Harmless on pages with no toolbar.
+document.documentElement.classList.add("pm-fab-ready");
+
 // On mobile/tablet (<992px) the editor toolbar is shown as a floating left
 // icon-rail that a FAB toggles. We inject the FAB + scrim here (vanilla JS —
-// Bootstrap JS is not bundled) only when the toolbar is actually present, and
-// flag <html> so the off-canvas CSS engages. Without this flag (JS failed to
-// load) the SCSS leaves the toolbar visible, never trapped off-screen.
+// Bootstrap JS is not bundled) only when the toolbar is actually present.
 const initToolbarFab = () => {
   const editZone = document.getElementById("edit-zone");
   // The toolbar viewlet only renders #edit-zone for logged-in users with a
   // visible toolbar; anonymous visitors get nothing injected.
   if (!editZone || document.querySelector(".pm-fab")) return;
-
-  document.documentElement.classList.add("pm-fab-ready");
 
   const scrim = document.createElement("div");
   scrim.className = "pm-toolbar-scrim";
