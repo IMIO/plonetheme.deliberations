@@ -38,6 +38,63 @@ const applyWatermarks = () => {
   });
 };
 
+// On mobile/tablet (<992px) the editor toolbar is shown as a floating left
+// icon-rail that a FAB toggles. We inject the FAB + scrim here (vanilla JS —
+// Bootstrap JS is not bundled) only when the toolbar is actually present, and
+// flag <html> so the off-canvas CSS engages. Without this flag (JS failed to
+// load) the SCSS leaves the toolbar visible, never trapped off-screen.
+const initToolbarFab = () => {
+  const editZone = document.getElementById("edit-zone");
+  // The toolbar viewlet only renders #edit-zone for logged-in users with a
+  // visible toolbar; anonymous visitors get nothing injected.
+  if (!editZone || document.querySelector(".pm-fab")) return;
+
+  document.documentElement.classList.add("pm-fab-ready");
+
+  const scrim = document.createElement("div");
+  scrim.className = "pm-toolbar-scrim";
+  scrim.setAttribute("aria-hidden", "true");
+  document.body.appendChild(scrim);
+
+  const fab = document.createElement("button");
+  fab.type = "button";
+  fab.className = "pm-fab";
+  fab.setAttribute("aria-label", "Ouvrir la barre d'outils");
+  fab.setAttribute("aria-expanded", "false");
+  fab.setAttribute("aria-controls", "edit-zone");
+  const icon = document.createElement("i");
+  icon.className = "bi bi-list";
+  icon.setAttribute("aria-hidden", "true");
+  fab.appendChild(icon);
+  document.body.appendChild(fab);
+
+  const open = () => {
+    document.body.classList.add("pm-toolbar-open");
+    fab.setAttribute("aria-expanded", "true");
+    fab.setAttribute("aria-label", "Fermer la barre d'outils");
+    icon.className = "bi bi-x-lg";
+  };
+  const close = () => {
+    document.body.classList.remove("pm-toolbar-open");
+    fab.setAttribute("aria-expanded", "false");
+    fab.setAttribute("aria-label", "Ouvrir la barre d'outils");
+    icon.className = "bi bi-list";
+  };
+  const toggle = () =>
+    document.body.classList.contains("pm-toolbar-open") ? close() : open();
+
+  fab.addEventListener("click", toggle);
+  scrim.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "Escape" &&
+      document.body.classList.contains("pm-toolbar-open")
+    ) {
+      close();
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", function (event) {
   // const popoverTriggerList = document.querySelectorAll(
   //   '[data-bs-toggle="popover"]'
@@ -47,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //   (popoverTriggerEl) => new Popover(popoverTriggerEl)
   // );
   applyWatermarks();
+  initToolbarFab();
   if (typeof Faceted != "undefined") {
     jQuery(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
       setTimeout(() => {

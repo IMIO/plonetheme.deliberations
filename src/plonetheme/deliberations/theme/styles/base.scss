@@ -162,6 +162,180 @@ body {
   }
 }
 
+// On mobile + tablet (<992px) Plone's "top" toolbar is unusable. Instead of a
+// full-width bar, we hide it off-canvas as a 60px vertical icon-rail overlaying
+// content, and a FAB (injected by theme.js) slides it in. All "off-canvas"
+// rules are gated under html.pm-fab-ready, so if the JS fails to load the
+// toolbar stays visible (sane fallback) rather than being trapped off-screen.
+// theme.js toggles body.pm-toolbar-open via the FAB / scrim / Escape.
+
+// The FAB + scrim only exist when theme.js injected them; never on desktop.
+.pm-fab,
+.pm-toolbar-scrim {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  // --- FAB: bottom-left magenta circle, hamburger -> x ---
+  html.pm-fab-ready .pm-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    border-radius: $rounded-full;
+    background: $imio-pink-500;
+    color: $white;
+    box-shadow: $shadow-lg;
+    z-index: 1060; // above the open drawer, always tappable to close
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    i.bi {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: $imio-pink-600;
+      outline: none;
+    }
+  }
+
+  // --- Scrim / backdrop (tap to close) ---
+  html.pm-fab-ready .pm-toolbar-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1045; // above content, below the drawer
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  body.pm-toolbar-open .pm-toolbar-scrim {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+
+  // --- Drawer: #edit-zone becomes a 60px off-canvas left icon-rail ---
+  // Overlay, don't reflow: kill Plone's body padding.
+  html.pm-fab-ready body.plone-toolbar-top {
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  html.pm-fab-ready #edit-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--plone-toolbar-width-collapsed, 60px);
+    height: 100%;
+    flex-direction: column;
+    z-index: 1050; // above scrim, below FAB
+    transform: translateX(-100%); // off-canvas by default
+    transition: transform 0.25s ease;
+    // No overflow here, or right-opening flyouts get clipped; scroll lives on
+    // .plone-toolbar-main only.
+    overflow: visible;
+
+    // Branding chip at top: logo only, drop the desktop skew in a vertical rail.
+    .toolbar-header {
+      flex: 0 0 auto;
+      width: 100%;
+      justify-content: center;
+      clip-path: none;
+      padding: 0.5rem 0;
+    }
+
+    .toolbar-branding {
+      margin-right: 0;
+      padding: 0.35rem;
+      clip-path: none;
+      justify-content: center;
+    }
+
+    // Actions: vertical scrollable column of icon-only buttons.
+    .plone-toolbar-main {
+      flex: 1 1 auto;
+      flex-direction: column !important;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      min-height: 0;
+      overflow-y: auto;
+
+      > li {
+        margin: 2px 0;
+      }
+    }
+
+    .nav-link:not(.dropdown-item) {
+      justify-content: center;
+      padding: 0.6rem 0;
+    }
+
+    // Personaltools pinned to the bottom.
+    .personaltools-wrapper {
+      flex: 0 0 auto;
+      margin-top: auto;
+      padding: 0.4rem 0;
+      border-top: 1px solid $grey-400;
+      display: flex;
+      justify-content: center;
+    }
+
+    // Icon-only rail: hide every text label and the dropdown caret.
+    .toolbar-branding-label,
+    .toolbar-label,
+    #personaltools-menulink .toolbar-label,
+    .dropdown-toggle::after {
+      display: none !important;
+    }
+
+    // Dropdowns open to the RIGHT of the rail (dropend), anchored to their item.
+    .plone-toolbar-main > li,
+    .personaltools-wrapper {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      right: auto;
+      margin: 0 0 0 4px !important;
+      min-width: 220px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    // Personaltools sits at the bottom: open its menu upward-right.
+    .personaltools-wrapper .dropdown-menu {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  // Slide the drawer in when open.
+  html.pm-fab-ready body.pm-toolbar-open #edit-zone {
+    transform: translateX(0);
+  }
+
+  // Lock background scroll while the drawer is open.
+  body.pm-toolbar-open {
+    overflow: hidden;
+  }
+}
+
 #mainnavigation {
   background-color: $white;
   box-shadow: $shadow-md;
