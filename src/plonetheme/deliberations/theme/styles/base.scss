@@ -38,17 +38,28 @@ body {
   .toolbar-branding {
     display: flex;
     align-items: center;
-    padding: 0.35rem 2.0rem 0.35rem 0.7rem;
+    padding: 0.35rem 1.5rem 0.35rem 0.7rem;
     margin-right: -1rem;
     background: $imio-pink-500;
     clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
     pointer-events: none;
   }
 
+  // The logo is a link to the portal root; re-enable clicks since the parent
+  // .toolbar-branding is pointer-events:none (decorative skewed block).
+  .toolbar-branding-logo-link {
+    display: inline-flex;
+    pointer-events: auto;
+  }
+
   .toolbar-branding-logo {
-    height: 20px;
-    width: auto;
-    filter: brightness(0) invert(1); // white logo on the pink background
+    height: 30px;
+    padding: 2px;
+    margin-top: -2px;
+    box-shadow: $shadow-md;
+    width: 30px;
+    background-color: $white;
+    border-radius: $rounded-full;
   }
 
   .toolbar-branding-label {
@@ -60,6 +71,17 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
+
+    a {
+      color: $white !important;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
   }
 
   #personaltools-menulink .toolbar-label {
@@ -119,6 +141,12 @@ body {
    .personaltools-wrapper > .nav-link {
          height: 35px;
    }
+
+  .personaltools-wrapper > .nav-link svg {
+    margin-right: 2px;
+    padding-right: 5px;
+    border-right: 1px solid $gray-500;
+  }
 
   .nav-link:not(.dropdown-item) {
     border-radius: $rounded-lg;
@@ -182,13 +210,13 @@ body {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    width: 56px;
-    height: 56px;
+    bottom: 0;
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 32px;
     padding: 0;
     border: none;
-    border-radius: $rounded-full;
+    border-radius: $rounded-lg $rounded-lg 0 0;
     background: $imio-pink-500;
     color: $white;
     box-shadow: $shadow-lg;
@@ -197,7 +225,7 @@ body {
     transition: background-color 0.2s ease;
 
     i.bi {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       line-height: 1;
     }
 
@@ -248,20 +276,10 @@ body {
     // .plone-toolbar-main only.
     overflow: visible;
 
-    // Branding chip at top: logo only, drop the desktop skew in a vertical rail.
+    // Hide the branding header entirely on mobile — the logo chip just eats
+    // vertical space in the narrow rail (the FAB and personaltools orient enough).
     .toolbar-header {
-      flex: 0 0 auto;
-      width: 100%;
-      justify-content: center;
-      clip-path: none;
-      padding: 0.5rem 0;
-    }
-
-    .toolbar-branding {
-      margin-right: 0;
-      padding: 0.35rem;
-      clip-path: none;
-      justify-content: center;
+      display: none;
     }
 
     // Actions: vertical column of icon-only buttons. No overflow scroll here:
@@ -897,6 +915,45 @@ $heading-sizes: (
 
     a {
       display: inline-block;
+    }
+  }
+}
+
+// "Flux RSS" document action (#section-document-actions) — turn the bare
+// icon + text link into a tidy secondary pill: neutral at rest with a small
+// magenta RSS glyph for brand recognition, filling magenta-tinted on hover.
+#section-document-actions {
+  margin-top: 1.5rem;
+
+  .list-inline {
+    margin-bottom: 0;
+    text-align: center; // center the RSS pill (the <a> is inline-flex)
+  }
+
+  #document-action-rss a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid $grey-400;
+    border-radius: $rounded-full;
+    background-color: $white;
+    color: $grey-700;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.15s ease, border-color 0.15s ease,
+      background-color 0.15s ease;
+
+    .bi-rss {
+      color: var(--nav-color); // institution color
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--nav-color);
+      background-color: color-mix(in srgb, var(--nav-color), transparent 92%);
+      outline: none;
     }
   }
 }

@@ -20,14 +20,25 @@
 
     <div class="toolbar-header nav pm-toolbar-header">
       <span class="toolbar-branding">
-        <img class="toolbar-branding-logo"
-             alt=""
-             tal:attributes="
-               src string:${portal_state/portal_url}/++plone++plonemeeting.portal.core/assets/logo.svg;
-             "
-        />
+        <a class="toolbar-branding-logo-link"
+           tal:attributes="
+             href portal_state/portal_url;
+             aria-label portal_state/portal_title;
+           "
+        >
+          <img class="toolbar-branding-logo"
+               alt=""
+               tal:attributes="
+                 src string:${portal_state/portal_url}/++theme++deliberations/assets/logo_icon_white_bg.svg;
+               "
+          />
+        </a>
       </span>
-      <span class="toolbar-branding-label">Barre d'outils</span>
+      <span class="toolbar-branding-label">
+        <a tal:attributes="href portal_state/navigation_root_url"
+           tal:content="portal_state/navigation_root_title"
+        >Barre d'outils</a>
+      </span>
       <!--<a class="toolbar-collapse"
          aria-label="Unpin"
          i18n:attributes="aria-label"

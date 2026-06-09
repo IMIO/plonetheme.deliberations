@@ -9,6 +9,24 @@ Changelog
   institution's own website): pushed to the far right on desktop and
   flagged with an outbound-link icon. [DELIBE-112]
   [aduchene]
+- Brand the edit toolbar: iMio header with the institution logo (linking
+  to the site root) and the navigation-root title (linking to the
+  navigation root).
+  [aduchene]
+- On mobile and tablet (<992px), replace the cramped collapsed toolbar
+  with a floating action button that slides the toolbar in as an
+  off-canvas left icon-rail.
+  [aduchene]
+- Host the toolbar template override
+  (``plone.app.layout.viewlets.toolbar``) in the theme instead of
+  plonemeeting.portal.core.
+  [aduchene]
+- Give the ``#portal-globalnav`` a top gradient border matching the
+  footer.
+  [aduchene]
+- Style the "Flux RSS" document action as a centered pill button using
+  the institution colour.
+  [aduchene]
 
 
 1.7 (2026-01-28)

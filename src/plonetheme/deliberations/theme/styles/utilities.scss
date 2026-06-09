@@ -13,10 +13,14 @@
 @include media-breakpoint-down(md) {
   body.plone-toolbar-top {
     .full-width {
-      width: calc(100vw - var(--plone-toolbar-width-collapsed));
-      left: calc(50% - var(--plone-toolbar-width-collapsed) / 2);
-      margin-left: calc(-50vw + var(--plone-toolbar-width-collapsed));
-      margin-right: calc(-50vw - 0px);
+      //width: calc(100vw - var(--plone-toolbar-width-collapsed));
+      //left: calc(50% - var(--plone-toolbar-width-collapsed) / 2);
+      //margin-left: calc(-50vw + var(--plone-toolbar-width-collapsed));
+      //margin-right: calc(-50vw - 0px);
+      width: 100vw;
+      left: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
     }
   }
 }
