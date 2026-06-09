@@ -264,14 +264,16 @@ body {
       justify-content: center;
     }
 
-    // Actions: vertical scrollable column of icon-only buttons.
+    // Actions: vertical column of icon-only buttons. No overflow scroll here:
+    // it clips the Bootstrap dropdown flyouts (and couples overflow-x too). A
+    // handful of toolbar items always fit a phone's height.
     .plone-toolbar-main {
       flex: 1 1 auto;
       flex-direction: column !important;
       flex-wrap: nowrap;
       align-items: stretch;
       min-height: 0;
-      overflow-y: auto;
+      overflow: visible;
 
       > li {
         margin: 2px 0;
@@ -301,27 +303,14 @@ body {
       display: none !important;
     }
 
-    // Dropdowns open to the RIGHT of the rail (dropend), anchored to their item.
-    .plone-toolbar-main > li,
-    .personaltools-wrapper {
-      position: relative;
-    }
-
+    // Dropdowns are Bootstrap/Popper-positioned (same as desktop). Don't fight
+    // Popper's inline placement here — just cap the height so a long menu
+    // (e.g. "Ajouter") scrolls internally instead of running off-screen. With
+    // the ancestors set to overflow:visible above, the flyouts are no longer
+    // clipped, so they open and work exactly like on desktop.
     .dropdown-menu {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      right: auto;
-      margin: 0 0 0 4px !important;
-      min-width: 220px;
       max-height: 80vh;
       overflow-y: auto;
-    }
-
-    // Personaltools sits at the bottom: open its menu upward-right.
-    .personaltools-wrapper .dropdown-menu {
-      top: auto;
-      bottom: 0;
     }
   }
 
