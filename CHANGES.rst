@@ -36,6 +36,12 @@ Changelog
   trim the surrounding padding so page content is no longer pushed
   below the fold.
   [aduchene]
+- Align the Plausible statistics dashboard (``@@statistics`` /
+  ``@@plausible-statistics``) with the site's content container: oversize
+  the embed iframe by the dashboard's internal side padding (the
+  dashboard's own max-width is lifted through Plausible's embed styles
+  injection, see plonemeeting.portal.core). [DELIBE-307]
+  [aduchene]
 
 
 1.7 (2026-01-28)

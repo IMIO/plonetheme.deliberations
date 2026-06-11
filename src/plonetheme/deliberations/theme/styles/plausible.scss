@@ -1,0 +1,20 @@
+// =========================================================================
+// Plausible statistics embed (@@statistics / @@plausible-statistics)
+//
+// The view's iframe carries a `styles` attribute that Plausible's embed
+// scripts inject into the iframe document, lifting the dashboard's
+// internal max-width — so the dashboard fills the iframe. What remains is
+// its container's 1rem side padding: oversize the iframe by exactly that
+// amount so the dashboard content lines up with the page content column.
+//
+// !important beats the inline `width: 1px; min-width: 100%` fallback that
+// the view template ships for unthemed rendering (and min-width would
+// otherwise win over width).
+// =========================================================================
+
+#content-core iframe[plausible-embed] {
+  display: block;
+  min-width: 0 !important;
+  width: calc(100% + 2rem) !important;
+  margin-inline: -1rem;
+}
