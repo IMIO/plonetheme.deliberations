@@ -337,6 +337,15 @@ body {
     transform: translateX(0);
   }
 
+  // While the toolbar is open, drop the FAB below the drawer (z-index 1050) so
+  // the drawer's dropdown flyouts (the ADMIN / personaltools menu) render above
+  // it. It stays above the scrim (1045), so it remains tappable to close. (When
+  // the toolbar is closed the FAB keeps its default 1060 — above the tab bar's
+  // "Plus" popover scrim — and the popover and toolbar are mutually exclusive.)
+  html.pm-fab-ready body.pm-toolbar-open .pm-fab {
+    z-index: 1048;
+  }
+
   // Lock background scroll while the drawer is open.
   body.pm-toolbar-open {
     overflow: hidden;

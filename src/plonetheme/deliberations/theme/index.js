@@ -1,5 +1,5 @@
 import "./styles/theme.scss";
-import "./styles/theme.scss";
+import { initMobileTabbar } from "./mobile-tabbar.jsx";
 // import "bootstrap";
 
 const heightWidthRatio = 0.33;
@@ -77,6 +77,9 @@ const initToolbarFab = () => {
     fab.setAttribute("aria-expanded", "true");
     fab.setAttribute("aria-label", "Fermer la barre d'outils");
     icon.className = "bi bi-x-lg";
+    // The bottom tab bar's "Plus" popover listens for this and closes itself —
+    // the two bottom overlays shouldn't be open at the same time.
+    document.dispatchEvent(new CustomEvent("pm-toolbar-open"));
   };
   const close = () => {
     document.body.classList.remove("pm-toolbar-open");
@@ -100,15 +103,9 @@ const initToolbarFab = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  // const popoverTriggerList = document.querySelectorAll(
-  //   '[data-bs-toggle="popover"]'
-  // );
-  // console.log(popoverTriggerList);
-  // [...popoverTriggerList].map(
-  //   (popoverTriggerEl) => new Popover(popoverTriggerEl)
-  // );
   applyWatermarks();
   initToolbarFab();
+  initMobileTabbar();
   if (typeof Faceted != "undefined") {
     jQuery(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function () {
       setTimeout(() => {
@@ -123,7 +120,3 @@ document.addEventListener("ItemsLayoutChanged", function (event) {
   cleanWatermarks();
   applyWatermarks();
 });
-
-// if (module.hot) {
-//   module.hot.accept();
-// }

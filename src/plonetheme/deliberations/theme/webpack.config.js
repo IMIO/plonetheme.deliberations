@@ -29,7 +29,14 @@ module.exports = (env, argv) => {
           use: {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-env"],
+              presets: [
+                "@babel/preset-env",
+                // JSX -> preact/jsx-runtime (no explicit `h` import needed).
+                [
+                  "@babel/preset-react",
+                  { runtime: "automatic", importSource: "preact" },
+                ],
+              ],
             },
           },
         },

@@ -27,6 +27,15 @@ Changelog
 - Style the "Flux RSS" document action as a centered pill button using
   the institution colour.
   [aduchene]
+- On mobile and tablet (<992px), replace the offcanvas hamburger menu
+  with a fixed bottom tab bar (a Preact component built from the global
+  navigation): up to three primary section tabs plus a "Plus" overflow
+  popover, the active tab using the per-institution accent colour.
+  [aduchene]
+- Compact the mobile/tablet header: cap the institution logo height and
+  trim the surrounding padding so page content is no longer pushed
+  below the fold.
+  [aduchene]
 
 
 1.7 (2026-01-28)
