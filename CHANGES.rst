@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.8 (unreleased)
+1.8 (2026-06-15)
 ----------------
 
 - Style the ``website-url`` navigation item (return link to the
