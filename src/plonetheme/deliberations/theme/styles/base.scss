@@ -35,119 +35,320 @@ body {
 
 
 .plone-toolbar-top {
-    // iMio-branded header: pink logo block with a skewed right edge, then the
-    // "Barre d'outils" label on the toolbar's normal (gray) background.
+  .toolbar-branding {
+    display: flex;
+    align-items: center;
+    padding: 0.35rem 1.5rem 0.35rem 0.7rem;
+    margin-right: -1rem;
+    background: $imio-pink-500;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+    pointer-events: none;
+  }
 
+  // The logo is a link to the portal root; re-enable clicks since the parent
+  // .toolbar-branding is pointer-events:none (decorative skewed block).
+  .toolbar-branding-logo-link {
+    display: inline-flex;
+    pointer-events: auto;
+  }
 
-    .toolbar-branding {
-        display: flex;
-        align-items: center;
-        padding: 0.35rem 2.0rem 0.35rem 0.7rem;
-        margin-right: -1rem;
-        background: $imio-pink-500;
-        clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
-        pointer-events: none;
+  .toolbar-branding-logo {
+    height: 30px;
+    padding: 2px;
+    margin-top: -2px;
+    box-shadow: $shadow-md;
+    width: 30px;
+    background-color: $white;
+    border-radius: $rounded-full;
+  }
+
+  .toolbar-branding-label {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.75rem; // clear the dark segment's skewed right tip
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    a {
+      color: $white !important;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: underline;
+      }
     }
+  }
 
-    .toolbar-branding-logo {
-        height: 20px;
-        width: auto;
-        filter: brightness(0) invert(1); // white logo on the pink background
-    }
-
-    .toolbar-branding-label {
-        display: flex;
-        align-items: center;
-        margin-right: auto;
-        padding-left: 1.5rem;
-        padding-right: 1.75rem; // clear the dark segment's skewed right tip
-        font-size: 0.85rem;
-        font-weight: 600;
-        white-space: nowrap;
-    }
-
-    // Surface the logged-in user's full name next to the personal-tools icon.
-    // Plone hides every .toolbar-label in top mode; we want this one shown.
-    #personaltools-menulink .toolbar-label {
-        display: inline-block;
-        margin-left: 0.4rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        white-space: nowrap;
-    }
+  #personaltools-menulink .toolbar-label {
+    display: inline-block;
+    margin-left: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
 }
 
 #edit-zone {
 
-    .toolbar-header {
-        background-color: $gray-800;
-        border-bottom: 1px transparent;
-        color: $grey-200;
-        display: flex;
-        align-items: stretch;
-        padding: 0;
-        overflow: hidden;
-        // Skew the right edge of the dark segment, echoing the pink block's
-        // slant, so the dark -> light transition is the same diagonal.
-        clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
-    }
+  .toolbar-header {
+    background-color: $gray-800;
+    border-bottom: 1px transparent;
+    color: $grey-200;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);  // Skew the right edge
+  }
 
   background-color: $grey-200;
   box-shadow: $shadow-md;
   border-bottom: 1px solid $grey-500;
 
   .dropdown-header {
-      font-weight: bold;
-      border-bottom: 1px solid $gray-400;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      letter-spacing: -0.025em;
+    font-weight: bold;
+    border-bottom: 1px solid $gray-400;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
 
   }
+
+  .dropdown-item.active, .dropdown-item:active {
+    color: $grey-900;
+    text-decoration: none;
+    background-color: var(--plone-toolbar-bg);
+}
+
 
   .plone-toolbar-main {
-      height: 100%;
-      align-items: stretch;
-      display: flex;
-      flex-direction: row !important;
+    height: 100%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row !important;
   }
 
 
+  .plone-toolbar-main > li, .personaltools-wrapper > .nav-link {
+    margin: 2px;
+  }
+
+   .personaltools-wrapper > .nav-link {
+         height: 35px;
+   }
+
+  .personaltools-wrapper > .nav-link svg {
+    margin-right: 2px;
+    padding-right: 5px;
+    border-right: 1px solid $gray-500;
+  }
+
+  .nav-link:not(.dropdown-item) {
+    border-radius: $rounded-lg;
+    padding: 0 0.7rem 0 0.75rem;
+  }
+
   .nav-link {
-      align-items: center;
-      display: flex;
-      color: $grey-700;
-      height: 100%;
-      svg {
-          margin-right: 8px;
-          margin-top: -2px;
-      }
+    align-items: center;
+    display: flex;
+    color: $grey-700;
+    height: 100%;
+
+    svg {
+      margin-right: 8px;
+      margin-top: -2px;
+    }
   }
 
   .dropdown-menu {
-      border-radius: $rounded-lg;
-      box-shadow: $shadow-md;
-      margin-top: 0.5em !important;
-      background-color: $gray-100;
-      padding-top: 0;
+    border-radius: $rounded-lg;
+    box-shadow: $shadow-md;
+    margin-top: 0.5em !important;
+    background-color: $gray-100;
+    padding-top: 0;
 
-      // Replace the generic "dot" fallback icon with a "⟡" marker. The icon
-      // is an inline <svg>, which can't carry ::before/::after, so we hide it
-      // and put the marker on the wrapping .dropdown-item instead.
-      .dropdown-item:has(> .plone-icon.bi.bi-dot) {
-          .plone-icon.bi.bi-dot {
-              visibility: hidden;
-          }
-
-          &::before {
-              content: "⟡";
-              display: inline-block;
-              width: 5px;
-              padding-left: 2px;
-              margin-right: 0px; // match the svg's margin-right
-              color: $grey-700;
-          }
+    .dropdown-item:has(> .plone-icon.bi.bi-dot) {
+      .plone-icon.bi.bi-dot {
+        visibility: hidden;
+        margin-right: 4px;
       }
+
+      &::before {
+        content: "⟡";
+        display: inline-block;
+        width: 5px;
+        padding-left: 2px;
+        margin-right: 0px !important;
+        color: $grey-700;
+      }
+    }
+  }
+}
+
+// On mobile + tablet (<992px) Plone's "top" toolbar is unusable. Instead of a
+// full-width bar, we hide it off-canvas as a 60px vertical icon-rail overlaying
+// content, and a FAB (injected by theme.js) slides it in. All "off-canvas"
+// rules are gated under html.pm-fab-ready, so if the JS fails to load the
+// toolbar stays visible (sane fallback) rather than being trapped off-screen.
+// theme.js toggles body.pm-toolbar-open via the FAB / scrim / Escape.
+
+// The FAB + scrim only exist when theme.js injected them; never on desktop.
+.pm-fab,
+.pm-toolbar-scrim {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  // --- FAB: bottom-left magenta circle, hamburger -> x ---
+  html.pm-fab-ready .pm-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: $rounded-lg $rounded-lg 0 0;
+    background: $imio-pink-500;
+    color: $white;
+    box-shadow: $shadow-lg;
+    z-index: 1060; // above the open drawer, always tappable to close
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    i.bi {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: $imio-pink-600;
+      outline: none;
+    }
+  }
+
+  // --- Scrim / backdrop (tap to close) ---
+  html.pm-fab-ready .pm-toolbar-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1045; // above content, below the drawer
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  body.pm-toolbar-open .pm-toolbar-scrim {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+
+  // --- Drawer: #edit-zone becomes a 60px off-canvas left icon-rail ---
+  // Overlay, don't reflow: kill Plone's body padding.
+  html.pm-fab-ready body.plone-toolbar-top {
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  html.pm-fab-ready #edit-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--plone-toolbar-width-collapsed, 60px);
+    height: 100%;
+    flex-direction: column;
+    z-index: 1050; // above scrim, below FAB
+    transform: translateX(-100%); // off-canvas by default
+    transition: transform 0.25s ease;
+    // No overflow here, or right-opening flyouts get clipped; scroll lives on
+    // .plone-toolbar-main only.
+    overflow: visible;
+
+    // Hide the branding header entirely on mobile — the logo chip just eats
+    // vertical space in the narrow rail (the FAB and personaltools orient enough).
+    .toolbar-header {
+      display: none;
+    }
+
+    // Actions: vertical column of icon-only buttons. No overflow scroll here:
+    // it clips the Bootstrap dropdown flyouts (and couples overflow-x too). A
+    // handful of toolbar items always fit a phone's height.
+    .plone-toolbar-main {
+      flex: 1 1 auto;
+      flex-direction: column !important;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      min-height: 0;
+      overflow: visible;
+
+      > li {
+        margin: 2px 0;
+      }
+    }
+
+    .nav-link:not(.dropdown-item) {
+      justify-content: center;
+      padding: 0.6rem 0;
+    }
+
+    // Personaltools pinned to the bottom.
+    .personaltools-wrapper {
+      flex: 0 0 auto;
+      margin-top: auto;
+      padding: 0.4rem 0;
+      border-top: 1px solid $grey-400;
+      display: flex;
+      justify-content: center;
+    }
+
+    // Icon-only rail: hide every text label and the dropdown caret.
+    .toolbar-branding-label,
+    .toolbar-label,
+    #personaltools-menulink .toolbar-label,
+    .dropdown-toggle::after {
+      display: none !important;
+    }
+
+    // Dropdowns are Bootstrap/Popper-positioned (same as desktop). Don't fight
+    // Popper's inline placement here — just cap the height so a long menu
+    // (e.g. "Ajouter") scrolls internally instead of running off-screen. With
+    // the ancestors set to overflow:visible above, the flyouts are no longer
+    // clipped, so they open and work exactly like on desktop.
+    .dropdown-menu {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+  }
+
+  // Slide the drawer in when open.
+  html.pm-fab-ready body.pm-toolbar-open #edit-zone {
+    transform: translateX(0);
+  }
+
+  // While the toolbar is open, drop the FAB below the drawer (z-index 1050) so
+  // the drawer's dropdown flyouts (the ADMIN / personaltools menu) render above
+  // it. It stays above the scrim (1045), so it remains tappable to close. (When
+  // the toolbar is closed the FAB keeps its default 1060 — above the tab bar's
+  // "Plus" popover scrim — and the popover and toolbar are mutually exclusive.)
+  html.pm-fab-ready body.pm-toolbar-open .pm-fab {
+    z-index: 1048;
+  }
+
+  // Lock background scroll while the drawer is open.
+  body.pm-toolbar-open {
+    overflow: hidden;
   }
 }
 
@@ -289,9 +490,9 @@ textarea.form-control {
   --grid-line-color: #eeeeef;
   background-color: #ffffff;
   background-image: linear-gradient(var(--grid-line-color) 2px, transparent 2px),
-    linear-gradient(90deg, var(--grid-line-color) 2px, transparent 2px),
-    linear-gradient(var(--grid-line-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line-color) 1px, #f8f9fa 1px);
+  linear-gradient(90deg, var(--grid-line-color) 2px, transparent 2px),
+  linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+  linear-gradient(90deg, var(--grid-line-color) 1px, #f8f9fa 1px);
   background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
   /* Add these so the pseudo-element can sit atop your pattern */
@@ -312,11 +513,11 @@ textarea.form-control {
     /* A gradient that’s fully opaque in the horizontal center,
        then fades out to transparent at both edges */
     background: linear-gradient(
-      to right,
-      rgba(248, 249, 250, 0) 0%,
-      rgba(248, 249, 250, 1) 25%,
-      rgba(248, 249, 250, 1) 75%,
-      rgba(248, 249, 250, 0) 100%
+            to right,
+            rgba(248, 249, 250, 0) 0%,
+            rgba(248, 249, 250, 1) 25%,
+            rgba(248, 249, 250, 1) 75%,
+            rgba(248, 249, 250, 0) 100%
     );
   }
 }
@@ -459,8 +660,7 @@ textarea.form-control {
       &::after {
         background-color: var(--nav-color);
         border-color: var(--nav-color);
-        box-shadow: 0 0 0 4px
-          color-mix(in srgb, var(--nav-color), transparent 80%);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--nav-color), transparent 80%);
       }
 
       .timeline-date {
@@ -595,11 +795,11 @@ textarea.form-control {
 }
 
 $heading-sizes: (
-  h1: 2rem,
-  h2: 1.5rem,
-  h3: 1.17rem,
-  h4: 0.9rem,
-  h5: 0.75rem,
+        h1: 2rem,
+        h2: 1.5rem,
+        h3: 1.17rem,
+        h4: 0.9rem,
+        h5: 0.75rem,
 );
 
 #content {
@@ -644,12 +844,14 @@ $heading-sizes: (
   .card {
     border: 1px solid $grey-300;
   }
+
   .card-img-top {
     background-color: $grey-100;
     padding: 2rem;
     border-bottom: 1px solid $grey-300;
     display: flex;
     justify-content: center;
+
     img {
       width: 250px;
       filter: grayscale(100%);
@@ -660,6 +862,7 @@ $heading-sizes: (
   .card-footer {
     font-size: 0.8rem;
   }
+
   .card-header {
     background-color: $grey-700;
     color: $white;
@@ -690,17 +893,17 @@ $heading-sizes: (
       --bs-btn-hover-color: #ffffff;
       --bs-btn-hover-bg: color-mix(in srgb, var(--nav-color), black 25%);
       --bs-btn-hover-border-color: color-mix(
-        in srgb,
-        var(--nav-color),
-        black 25%
+              in srgb,
+              var(--nav-color),
+              black 25%
       );
       --bs-btn-focus-shadow-rgb: 38, 143, 189;
       --bs-btn-active-color: #ffffff;
       --bs-btn-active-bg: color-mix(in srgb, var(--nav-color), black 25%);
       --bs-btn-active-border-color: color-mix(
-        in srgb,
-        var(--nav-color),
-        black 25%
+              in srgb,
+              var(--nav-color),
+              black 25%
       );
       --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
       --bs-btn-disabled-color: #ffffff;
@@ -713,6 +916,7 @@ $heading-sizes: (
       padding: 0.75rem 0;
     }
   }
+
   .footer {
     margin-top: 0.25rem;
     font-style: italic;
@@ -720,6 +924,45 @@ $heading-sizes: (
 
     a {
       display: inline-block;
+    }
+  }
+}
+
+// "Flux RSS" document action (#section-document-actions) — turn the bare
+// icon + text link into a tidy secondary pill: neutral at rest with a small
+// magenta RSS glyph for brand recognition, filling magenta-tinted on hover.
+#section-document-actions {
+  margin-top: 1.5rem;
+
+  .list-inline {
+    margin-bottom: 0;
+    text-align: center; // center the RSS pill (the <a> is inline-flex)
+  }
+
+  #document-action-rss a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid $grey-400;
+    border-radius: $rounded-full;
+    background-color: $white;
+    color: $grey-700;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.15s ease, border-color 0.15s ease,
+      background-color 0.15s ease;
+
+    .bi-rss {
+      color: var(--nav-color); // institution color
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--nav-color);
+      background-color: color-mix(in srgb, var(--nav-color), transparent 92%);
+      outline: none;
     }
   }
 }

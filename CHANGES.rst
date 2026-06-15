@@ -9,6 +9,39 @@ Changelog
   institution's own website): pushed to the far right on desktop and
   flagged with an outbound-link icon. [DELIBE-112]
   [aduchene]
+- Brand the edit toolbar: iMio header with the institution logo (linking
+  to the site root) and the navigation-root title (linking to the
+  navigation root).
+  [aduchene]
+- On mobile and tablet (<992px), replace the cramped collapsed toolbar
+  with a floating action button that slides the toolbar in as an
+  off-canvas left icon-rail.
+  [aduchene]
+- Host the toolbar template override
+  (``plone.app.layout.viewlets.toolbar``) in the theme instead of
+  plonemeeting.portal.core.
+  [aduchene]
+- Give the ``#portal-globalnav`` a top gradient border matching the
+  footer.
+  [aduchene]
+- Style the "Flux RSS" document action as a centered pill button using
+  the institution colour.
+  [aduchene]
+- On mobile and tablet (<992px), replace the offcanvas hamburger menu
+  with a fixed bottom tab bar (a Preact component built from the global
+  navigation): up to three primary section tabs plus a "Plus" overflow
+  popover, the active tab using the per-institution accent colour.
+  [aduchene]
+- Compact the mobile/tablet header: cap the institution logo height and
+  trim the surrounding padding so page content is no longer pushed
+  below the fold.
+  [aduchene]
+- Align the Plausible statistics dashboard (``@@statistics`` /
+  ``@@plausible-statistics``) with the site's content container: oversize
+  the embed iframe by the dashboard's internal side padding (the
+  dashboard's own max-width is lifted through Plausible's embed styles
+  injection, see plonemeeting.portal.core). [DELIBE-307]
+  [aduchene]
 
 
 1.7 (2026-01-28)

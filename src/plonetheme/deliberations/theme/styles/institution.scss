@@ -18,6 +18,37 @@
   #portal-logo {
     max-width: 250px;
   }
+
+  // Compact header on mobile/tablet. The institution logo otherwise dominates
+  // the viewport — a tall portrait logo (e.g. Namur) renders ~370px high and
+  // pushes all content below the fold. Cap it to a small centred mark and trim
+  // the surrounding padding so content starts near the top. !important is
+  // needed to beat Bootstrap's padding utilities and Barceloneta's
+  // `#portal-logo img { min-height: 75px }` (loaded after our theme CSS).
+  @include media-breakpoint-down(lg) {
+    padding-top: 0.4rem !important;
+
+    #portal-top {
+      margin-bottom: 0 !important;
+    }
+
+    #portal-logo-wrapper {
+      padding-bottom: 0.4rem !important;
+    }
+
+    #portal-logo {
+      max-width: none;
+
+      img {
+        min-height: 0 !important;
+        max-height: 60px !important;
+        max-width: min(60vw, 220px) !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain;
+      }
+    }
+  }
 }
 
 
