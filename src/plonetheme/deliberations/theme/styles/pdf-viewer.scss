@@ -141,6 +141,12 @@
 
 @include media-breakpoint-down(md) {
 
+  // On mobile the navbar is fixed at the bottom, so the fixed toolbar must be
+  // pinned to the very top instead of leaving room for a top navbar.
+  .pdf-viewer-toolbar.fixed-toolbar,
+  .plone-toolbar-top .pdf-viewer-toolbar.fixed-toolbar {
+    top: 0;
+  }
 
   .pdf-viewer-toolbar {
     display: flex;

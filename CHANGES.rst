@@ -5,7 +5,9 @@ Changelog
 1.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- On mobile (<768px), pin the fixed PDF viewer toolbar to the top of the
+  viewport (``top: 0``) since the navbar is now fixed at the bottom.
+  [aduchene]
 
 
 1.8 (2026-06-15)
