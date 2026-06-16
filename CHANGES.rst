@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.9 (unreleased)
+1.9 (2026-06-16)
 ----------------
 
 - On mobile (<768px), pin the fixed PDF viewer toolbar to the top of the
