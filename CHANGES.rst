@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.10 (unreleased)
+1.10 (2026-08-17)
 -----------------
 
 - Style the ``@@login-choice`` page: equal-height buttons, a pink
