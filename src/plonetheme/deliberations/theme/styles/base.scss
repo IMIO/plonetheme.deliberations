@@ -926,6 +926,54 @@ $heading-sizes: (
       display: inline-block;
     }
   }
+
+  // Login-choice page (@@login-choice): Wallonie Connect vs délibérations.be
+  // account. Both buttons share a fixed height so the logo-only one lines
+  // up with the text one.
+  .login-choice-buttons .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3rem;
+  }
+
+  .btn-wallonie-connect {
+    background-color: $imio-pink-500;
+    border: 1px solid $imio-pink-500;
+    color: $white;
+    font-weight: 600;
+
+    img {
+      height: 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $imio-pink-600;
+      border-color: $imio-pink-600;
+      color: $white;
+    }
+  }
+
+  // Migration notice: flush with the card edges, below the buttons.
+  .login-choice-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin: 1rem calc(var(--bs-card-spacer-x) * -1) calc(var(--bs-card-spacer-y) * -1);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+
+    .bi {
+      font-size: 1.1rem;
+      line-height: 1;
+      margin-top: 0.15rem;
+    }
+  }
 }
 
 // "Flux RSS" document action (#section-document-actions) — turn the bare

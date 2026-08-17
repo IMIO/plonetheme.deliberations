@@ -5,7 +5,10 @@ Changelog
 1.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Style the ``@@login-choice`` page: equal-height buttons, a pink
+  Wallonie Connect button and a full-width migration notice flush with
+  the card edges.
+  [aduchene]
 
 
 1.9 (2026-06-16)
