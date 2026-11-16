@@ -139,3 +139,14 @@
       padding: 1rem 1rem;
     }
 }
+
+// GDPR placeholder link in deliberation texts.
+a.pm-anonymize {
+  display: inline-block;
+  border: 1px solid var(--links-color);
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  color: var(--links-color);
+  font-size: 0.75em;
+  font-weight: 500;
+}

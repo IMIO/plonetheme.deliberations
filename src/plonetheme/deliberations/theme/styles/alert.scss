@@ -57,8 +57,12 @@
   border-top: 1px solid var(--#{$prefix}alert-border-color);
   border-bottom: 1px solid var(--#{$prefix}alert-border-color);
 
-  i {
+  .alert-icon i {
     font-size: 30px;
+  }
+
+  .alert-content i {
+    font-size: 1rem;
   }
 
   .alert-icon {
