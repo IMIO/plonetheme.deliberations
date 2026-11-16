@@ -1014,3 +1014,11 @@ $heading-sizes: (
     }
   }
 }
+
+// Print background colors and images.
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

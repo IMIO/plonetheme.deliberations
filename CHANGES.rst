@@ -5,7 +5,11 @@ Changelog
 1.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Move the site "custom styles" CSS into the theme: logo sizing, the GDPR
+  ``pm-anonymize`` link, print background colors, meeting video iframes,
+  alert icon sizes and annex action links above the card link. Drop the
+  rules that no longer match any markup. [DELIBE-315]
+  [aduchene]
 
 
 1.10 (2026-08-17)
