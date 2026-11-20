@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.11 (unreleased)
+1.11 (2026-11-20)
 -----------------
 
 - DELIBE-353: Give the PDF viewer of ``imio.pdfviewer`` the Délibérations
