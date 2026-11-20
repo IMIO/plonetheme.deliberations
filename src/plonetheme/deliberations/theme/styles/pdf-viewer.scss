@@ -41,3 +41,89 @@
   --pdf-viewer-divider: #{$grey-700};
   --pdf-viewer-button-hover-bg: rgba(255, 255, 255, 0.1);
 }
+
+// The box of the viewer is in the page before the viewer starts, so the
+// page does not move when the viewer comes. The frame of a browser that
+// cannot show the PDF is small: it gets no box.
+// Without scripts, no viewer starts.
+@media (scripting: enabled) {
+  .pat-pdf-viewer:not(:has(> .pdf-viewer-fallback)) {
+    min-height: var(--pdf-viewer-height, 85dvh);
+  }
+}
+
+// Text version of the PDF, in the page of a publication.
+// The page holds the text in a child of the pattern element. The viewer
+// moves it into its "Text version" tab.
+
+// The text in the page has the look of the text tab of the viewer.
+.pat-pdf-viewer > [data-pdf-viewer-text] {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  color: $grey-900;
+  background: $grey-100;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+
+  > * {
+    max-width: 70ch;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  :is(p, ul, ol, dl, table) {
+    margin-bottom: 1em;
+  }
+
+  .ocr-page + .ocr-page {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid $grey-400;
+  }
+
+  // A wide table scrolls. The paragraphs keep the width of the column.
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  :is(th, td) {
+    padding: 0.25rem 0.5rem;
+    vertical-align: top;
+    border: 1px solid $grey-400;
+  }
+}
+
+// While the viewer starts, the text scrolls in the box of the viewer.
+// Without scripts, the text keeps its full height.
+@media (scripting: enabled) {
+  .pat-pdf-viewer:has(> [data-pdf-viewer-text]):not(:has(> .pdf-viewer-fallback)) {
+    display: flex;
+    flex-direction: column;
+    height: var(--pdf-viewer-height, 85dvh);
+
+    > [data-pdf-viewer-text] {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+    }
+  }
+}
+
+// In the text tab, the button of the viewer loads the full text.
+.pdf-viewer-text .publication-text-version-more {
+  display: none;
+}
+
+.dark .pat-pdf-viewer > [data-pdf-viewer-text] {
+  color: $white;
+  background: $grey-800;
+  border-color: $grey-700;
+
+  .ocr-page + .ocr-page,
+  :is(th, td) {
+    border-color: $grey-700;
+  }
+}

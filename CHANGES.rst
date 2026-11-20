@@ -5,7 +5,11 @@ Changelog
 1.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- DELIBE-321: Style the text version of the PDF of a publication that is in
+  the page before the PDF viewer of ``imio.pdfviewer`` starts, in light and
+  dark mode. Keep the box of the viewer in the page before the viewer starts,
+  so the page does not move. Without scripts, the text keeps its full height.
+  [aduchene]
 
 
 1.11 (2026-11-20)
