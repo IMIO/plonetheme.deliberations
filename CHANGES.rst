@@ -5,7 +5,12 @@ Changelog
 1.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- DELIBE-353: Give the PDF viewer of ``imio.pdfviewer`` the Délibérations
+  colors with its custom properties, in light and dark mode, and keep its
+  toolbar under the Plone toolbar. The rules for the old viewer go, with
+  the dark mode rules for ``.btn`` and ``.border-end`` that applied to the
+  whole site.
+  [aduchene]
 
 
 1.10 (2026-08-17)
