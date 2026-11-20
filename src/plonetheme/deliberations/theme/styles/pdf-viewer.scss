@@ -24,6 +24,14 @@
   }
 }
 
+// Below 992px, theme.js moves the Plone toolbar into a drawer on the left
+// (html.pm-fab-ready). Nothing stays at the top.
+@include media-breakpoint-down(lg) {
+  html.pm-fab-ready .plone-toolbar-top .pdf-viewer {
+    --pdf-viewer-sticky-top: 0;
+  }
+}
+
 .dark .pdf-viewer {
   --pdf-viewer-color: #{$white};
   --pdf-viewer-bg: #{$grey-800};
